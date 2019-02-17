@@ -123,12 +123,14 @@ return [
                     'url'   => '#',
                 ],
                 [
-                    'text' => 'Telescope',
-                    'url'  => 'admin/telescope',
+                    'text'  => 'Telescope',
+                    'url'   => 'admin/telescope',
+                    'can'   => 'view_telescope'
                 ],
                 [
-                    'text' => 'Logs de Atividade',
-                    'url'  => 'admin/logs',
+                    'text'  => 'Logs de Atividade',
+                    'url'   => 'admin/logs',
+                    'can'   => 'view_activitylog'
                 ],
             ],
         ]
