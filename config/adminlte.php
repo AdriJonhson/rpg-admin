@@ -120,7 +120,8 @@ return [
             'submenu' => [
                 [
                     'text'  => 'Usuários',
-                    'url'   => '#',
+                    'url'   => 'admin/users',
+                    'can'   => 'view_users'
                 ],
                 [
                     'text'  => 'Telescope',
