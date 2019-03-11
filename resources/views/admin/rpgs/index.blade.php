@@ -14,18 +14,22 @@
                     <tr>
                         <td>Nome</td>
                         <td>Iniciar</td>
+                        @can('control_rpg')
                         <td>Adicionar Jogador</td>
                         <td>Editar</td>
                         <td>Excluir</td>
+                        @endcan
                     </tr>
                     </thead>
                     <tbody></tbody>
                 </table>
             </div>
         </div>
-        <div class="box-footer">
-            <button class="btn btn-success" data-toggle="modal" data-target="#modal-create"><span class="fa fa-plus"></span> Novo RPG</button>
-        </div>
+        @can('control_rpg')
+            <div class="box-footer">
+                <button class="btn btn-success" data-toggle="modal" data-target="#modal-create"><span class="fa fa-plus"></span> Novo RPG</button>
+            </div>
+        @endcan
     </div>
 
     @can('control_rpg')
@@ -70,10 +74,11 @@
             columns: [
                 {'data': 'title'},
                 {render: renderStart},
+                @can('control_rpg')
                 {render: renderAddPlayer},
                 {render: renderEdit},
                 {render: renderDelete},
-
+                @endcan
             ]
         });
 
