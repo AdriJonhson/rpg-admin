@@ -5,8 +5,6 @@
 @stop
 
 @section('content')
-
-
     <div class="box box-primary">
         <div class="box-heading"></div>
         

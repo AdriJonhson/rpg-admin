@@ -1,8 +1,9 @@
 <?php
 
 $c = (object)[
-    'dashboardController'   => 'Admin\\'.DashboradController::class,
-    'userController'        => 'Admin\\'.UsersController::class
+    'dashboardController'   => DashboradController::class,
+    'userController'        => UsersController::class,
+    'rpgController'         => RpgController::class
 ];
 
 Route::group(['prefix' => 'admin'], function () use($c){
@@ -14,6 +15,10 @@ Route::group(['prefix' => 'admin'], function () use($c){
 
         Route::get('/', $c->userController.'@index')->name('admin.users.index');
 
+    });
 
+    Route::group(['prefix'  => 'rpgs'], function() use($c){
+       Route::get('/', $c->rpgController.'@index')->name('rpg.index');
+       Route::post('/', $c->rpgController.'@store')->name('rpg.store');
     });
 });

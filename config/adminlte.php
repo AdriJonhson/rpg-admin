@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => config('app.name'),
+    'logo' => "Ger. Aventura",
 
-    'logo_mini' => '<b>A</b>LT',
+    'logo_mini' => '<b>GA</b>',
 
     /*
     |--------------------------------------------------------------------------
@@ -113,6 +113,11 @@ return [
             'text'        => 'Dashboard',
             'url'         => 'admin/dashboard',
             'icon'        => 'dashboard',
+        ],
+        [
+            'text'        => 'RPGS',
+            'url'         => 'admin/rpgs',
+            'icon'        => 'book',
         ],
         [
             'text'    => 'Menu do Sistema',
