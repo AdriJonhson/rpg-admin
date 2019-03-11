@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'skin' => 'blue',
+    'skin' => 'red',
 
     /*
     |--------------------------------------------------------------------------
@@ -85,15 +85,15 @@ return [
     |
     */
 
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'rpgs',
 
-    'logout_url' => 'admin/logout',
+    'logout_url' => 'logout',
 
     'logout_method' => null,
 
-    'login_url' => 'admin',
+    'login_url' => '',
 
-    'register_url' => 'admin/register',
+    'register_url' => 'register',
 
     /*
     |--------------------------------------------------------------------------
@@ -113,15 +113,17 @@ return [
             'text'        => 'Dashboard',
             'url'         => 'admin/dashboard',
             'icon'        => 'dashboard',
+            'can'         => 'super_admin'
         ],
         [
             'text'        => 'RPGS',
-            'url'         => 'admin/rpgs',
+            'url'         => 'rpgs',
             'icon'        => 'book',
         ],
         [
             'text'    => 'Menu do Sistema',
             'icon'    => 'desktop',
+            'can'         => 'super_admin',
             'submenu' => [
                 [
                     'text'  => 'Usuários',

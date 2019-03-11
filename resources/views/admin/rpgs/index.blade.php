@@ -70,7 +70,7 @@
         $('#datatable').DataTable({
             processing: true,
             bLengthChange: false,
-            ajax: '/admin/rpgs/',
+            ajax: '/rpgs/',
             columns: [
                 {'data': 'title'},
                 {render: renderStart},

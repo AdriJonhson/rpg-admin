@@ -11,16 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-    return view('site.welcome');
-});
+$c = (object)[
+    'rpgController'         => RpgController::class
+];
 
-Route::group(['prefix' => 'admin'], function (){
 
-    Route::get('/', 'Admin\\Auth\\LoginController@showLoginForm')->name('admin.form.login');
-    Route::post('/', 'Admin\\Auth\\LoginController@login')->name('admin.login');
-    Route::post('/logout', 'Admin\\Auth\\LoginController@logout')->name('admin.logout');
+Route::get('/', 'Admin\\Auth\\LoginController@showLoginForm')->name('admin.form.login');
+Route::post('/', 'Admin\\Auth\\LoginController@login')->name('login');
+Route::post('/logout', 'Admin\\Auth\\LoginController@logout')->name('admin.logout');
 
-    Route::get('/register', 'Admin\\Auth\\RegisterController@showRegistrationForm')->name('admin.form.register');
-    Route::post('/register', 'Admin\\Auth\\RegisterController@register')->name('admin.form.create');
+Route::get('/register', 'Admin\\Auth\\RegisterController@showRegistrationForm')->name('admin.form.register');
+Route::post('/register', 'Admin\\Auth\\RegisterController@register')->name('admin.form.create');
+
+Route::group(['middleware' => 'auth'], function() use($c){
+    Route::group(['prefix'  => 'rpgs'], function() use($c){
+        Route::get('/', $c->rpgController.'@index')->name('rpg.index');
+        Route::post('/', $c->rpgController.'@store')->name('rpg.store');
+    });
 });
