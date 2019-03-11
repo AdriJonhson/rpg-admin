@@ -24,8 +24,11 @@ Route::get('/register', 'Admin\\Auth\\RegisterController@showRegistrationForm')-
 Route::post('/register', 'Admin\\Auth\\RegisterController@register')->name('admin.form.create');
 
 Route::group(['middleware' => 'auth'], function() use($c){
+
     Route::group(['prefix'  => 'rpgs'], function() use($c){
         Route::get('/', $c->rpgController.'@index')->name('rpg.index');
         Route::post('/', $c->rpgController.'@store')->name('rpg.store');
+        Route::put('/edit/{rpg}', $c->rpgController.'@update')->name('rpg.update');
     });
+
 });

@@ -6,10 +6,10 @@
 
 @section('content')
 
-    <div class="box box-primary">
+    <div class="box box-default">
         <div class="box-body">
             <div class="table-responsive">
-                <table class="table" id="datatable" style="width: 100%">
+                <table class="table" id="datatables" style="width: 100%">
                     <thead>
                     <tr>
                         <td>Nome</td>
@@ -46,12 +46,45 @@
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="title">Titulo</label>
-                                <input type="text" class="form-control" id="title" name="title" placeholder="Titulo dessa aventura">
+                                <input type="text" class="form-control" id="title" name="title" placeholder="Titulo dessa aventura" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="title">Descriçao</label>
+                                <label for="description">Descriçao</label>
                                 <textarea class="form-control" id="description" name="description" placeholder="Descriçao dessa aventura" rows="10"></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Fechar</button>
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    @endcan
+
+    @can('control_rpg')
+        <div class="modal fade" id="modal-edit">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Nova Aventura</h4>
+                    </div>
+                    <form action="{!! route('rpg.store') !!}" method="POST" id="form-edit">
+                        @method('PUT')
+                        @csrf
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="title_edit">Titulo</label>
+                                <input type="text" class="form-control" id="title_edit" name="title" placeholder="Titulo dessa aventura" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="description_edit">Descriçao</label>
+                                <textarea class="form-control" id="description_edit" name="description" placeholder="Descriçao dessa aventura" rows="10"></textarea>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -67,7 +100,7 @@
 
 @section('js')
     <script>
-        $('#datatable').DataTable({
+        $('#datatables').DataTable({
             processing: true,
             bLengthChange: false,
             ajax: '/rpgs/',
@@ -90,12 +123,33 @@
             return  `<a class='btn btn-info' href='#'><span class='fa fa-plus'></span></a>`;
         }
 
-        function renderEdit(){
-            return  `<a class='btn btn-warning' href='#'><span class='fa fa-pencil'></span></a>`;
+        function renderEdit(data, type, row){
+            return  `<a class='btn btn-warning btn-edit' data-id='${row.id}' data-title='${row.title}' data-description='${row.description}'><span class='fa fa-pencil'></span></a>`;
         }
 
         function renderDelete(){
-            return  `<a class='btn btn-danger' href='#'><span class='fa fa-trash'></span></a>`;
+            return  `<a class='btn btn-danger'><span class='fa fa-trash'></span></a>`;
         }
+
+        $('#datatables').on('click', '.btn-edit', function(){
+           let title = $(this).data('title');
+           let description = $(this).data('description');
+           let id = $(this).data('id');
+
+           let url = 'rpgs/edit/'+id;
+
+           $('#title_edit').val(title);
+           $('#description_edit').val(description);
+
+           $('#form-edit').attr('action', url);
+
+           $('#modal-edit').modal('show');
+        });
+
+        $('#modal-edit').on('hide.bs.modal', function(){
+            $('#title_edit').val('');
+            $('#description_edit').val('');
+        });
+
     </script>
 @endsection

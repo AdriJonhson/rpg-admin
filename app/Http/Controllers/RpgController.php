@@ -27,4 +27,11 @@ class RpgController extends Controller
 
         return redirect()->back()->withSuccess('Aventura criada com sucesso!');
     }
+
+    public function update(Request $request, Rpg $rpg)
+    {
+        $rpg->update($request->all());
+
+        return redirect()->back()->withSuccess('Dados da aventura atualizados com sucesso!');
+    }
 }
