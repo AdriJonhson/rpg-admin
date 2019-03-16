@@ -5,7 +5,6 @@
 @stop
 
 @section('content')
-
     <div class="box box-default">
         <div class="box-body">
             <div class="table-responsive">
@@ -97,11 +96,44 @@
         </div>
     @endcan
 
-    @include('admin.components.modal_delete', [
-       'action' => route('rpg.delete'),
-       'title' => 'Remover RPG',
-       'text'  => 'Deseja realmente excluir esse RPG?'
-   ])
+    @can('control_rpg')
+        <div class="modal fade" id="modal-player">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Adicionar Jogador</h4>
+                    </div>
+                    <form action="" method="POST" id="form-player">
+                        @csrf
+                        <div class="modal-body">
+                            <select name="player" id="player" class="form-control" required>
+                                <option value="">Selecione o player que deseja adicionar nessa aventura</option>
+                                @forelse($players as $player)
+                                    <option value="{{$player->id}}">{{$player->name}}</option>
+                                @empty
+                                    <option value="" disabled selected>Nenhum Player para adicionar nesse RPG</option>
+                                @endforelse
+                            </select>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Fechar</button>
+                            <button type="submit" class="btn btn-primary">Adicionar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    @endcan
+
+    @can('control_rpg')
+        @include('admin.components.modal_delete', [
+           'action' => route('rpg.delete'),
+           'title' => 'Remover RPG',
+           'text'  => 'Deseja realmente excluir esse RPG?'
+       ])
+    @endcan
 
 @stop
 
@@ -126,8 +158,8 @@
             return  `<a class='btn btn-success' href='#'><span class="fa fa-play"></span></a>`;
         }
 
-        function renderAddPlayer(){
-            return  `<a class='btn btn-info' href='#'><span class='fa fa-plus'></span></a>`;
+        function renderAddPlayer(data, type, row){
+            return  `<button class='btn btn-info btn-add-player' data-rpg='${row.id}'><span class='fa fa-plus'></span></button>`;
         }
 
         function renderEdit(data, type, row){
@@ -168,5 +200,12 @@
             $('#modal_remove_id_delete').val('');
         });
 
+        $('#datatables').on('click', '.btn-add-player', function(){
+            let rpg = $(this).data('rpg');
+            let url = "rpgs/"+rpg+"/add-player";
+            $('#form-player').attr('action', url);
+
+            $('#modal-player').modal('show');
+        })
     </script>
 @endsection

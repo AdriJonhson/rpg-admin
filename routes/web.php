@@ -30,6 +30,7 @@ Route::group(['middleware' => 'auth'], function() use($c){
         Route::post('/', $c->rpgController.'@store')->name('rpg.store');
         Route::put('/edit/{rpg}', $c->rpgController.'@update')->name('rpg.update');
         Route::delete('/delete', $c->rpgController.'@delete')->name('rpg.delete');
+        Route::post('{rpg}/add-player', $c->rpgController.'@addPlayer')->name('rpg.add.player');
     });
 
 });
