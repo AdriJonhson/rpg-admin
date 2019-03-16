@@ -34,4 +34,11 @@ class RpgController extends Controller
 
         return redirect()->back()->withSuccess('Dados da aventura atualizados com sucesso!');
     }
+
+    public function delete(Request $request)
+    {
+        $rpg = Rpg::destroy($request->id);
+
+        return redirect()->back()->withSuccess('Aventura removida!');
+    }
 }

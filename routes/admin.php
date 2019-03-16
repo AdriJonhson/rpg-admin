@@ -17,8 +17,8 @@ Route::group(['prefix' => 'admin'], function () use($c){
 
     });
 
-    Route::group(['prefix'  => 'rpgs'], function() use($c){
-       Route::get('/', $c->rpgController.'@index')->name('rpg.index');
-       Route::post('/', $c->rpgController.'@store')->name('rpg.store');
-    });
+//    Route::group(['prefix'  => 'rpgs'], function() use($c){
+//       Route::get('/', $c->rpgController.'@index')->name('rpg.index');
+//       Route::post('/', $c->rpgController.'@store')->name('rpg.store');
+//    });
 });

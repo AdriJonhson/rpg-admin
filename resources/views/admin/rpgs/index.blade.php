@@ -27,7 +27,7 @@
         </div>
         @can('control_rpg')
             <div class="box-footer">
-                <button class="btn btn-success" data-toggle="modal" data-target="#modal-create"><span class="fa fa-plus"></span> Novo RPG</button>
+                <button class="btn btn-success" data-toggle="modal" data-target="#modal-create"><span class="fa fa-plus"></span> Nova Aventura</button>
             </div>
         @endcan
     </div>
@@ -96,11 +96,18 @@
             </div>
         </div>
     @endcan
+
+    @include('admin.components.modal_delete', [
+       'action' => route('rpg.delete'),
+       'title' => 'Remover RPG',
+       'text'  => 'Deseja realmente excluir esse RPG?'
+   ])
+
 @stop
 
 @section('js')
     <script>
-        $('#datatables').DataTable({
+        $('#datatables').dataTable({
             processing: true,
             bLengthChange: false,
             ajax: '/rpgs/',
@@ -127,8 +134,8 @@
             return  `<a class='btn btn-warning btn-edit' data-id='${row.id}' data-title='${row.title}' data-description='${row.description}'><span class='fa fa-pencil'></span></a>`;
         }
 
-        function renderDelete(){
-            return  `<a class='btn btn-danger'><span class='fa fa-trash'></span></a>`;
+        function renderDelete(data, type, row){
+            return  `<a class='btn btn-danger btn-remove' data-id='${row.id}'><span class='fa fa-trash'></span></a>`;
         }
 
         $('#datatables').on('click', '.btn-edit', function(){
@@ -149,6 +156,16 @@
         $('#modal-edit').on('hide.bs.modal', function(){
             $('#title_edit').val('');
             $('#description_edit').val('');
+        });
+
+        $('#datatables').on('click', '.btn-remove', function () {
+            var id = $(this).data('id');
+            $('#modal_remove_id_delete').val(id);
+            $('#modal-delete').modal('show');
+        });
+
+        $('#modal-delete').on('hide.bs.modal', function(){
+            $('#modal_remove_id_delete').val('');
         });
 
     </script>
