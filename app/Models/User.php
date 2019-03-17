@@ -44,4 +44,9 @@ class User extends Authenticatable
     {
         return $this->morphToMany(Rpg::class, 'model', 'rpg_players');
     }
+
+    public function cards()
+    {
+        return $this->morphMany(Card::class, 'model');
+    }
 }

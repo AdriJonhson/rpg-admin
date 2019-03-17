@@ -14,7 +14,7 @@ class Rpg extends Model
 
     public function players()
     {
-        return $this->morphedByMany(Player::class, 'model', 'rpg_players', 'rpg_id');
+        return $this->morphedByMany(User::class, 'model', 'rpg_players', 'rpg_id');
     }
 
 

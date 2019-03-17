@@ -12,7 +12,8 @@
 */
 
 $c = (object)[
-    'rpgController'         => RpgController::class
+    'rpgController'     => RpgController::class,
+    'cardController'    => CardController::class
 ];
 
 
@@ -32,12 +33,12 @@ Route::group(['middleware' => 'auth'], function() use($c){
         Route::delete('/delete', $c->rpgController.'@delete')->name('rpg.delete');
         Route::post('{rpg}/add-player', $c->rpgController.'@addPlayer')->name('rpg.add.player');
         
-        Route::get('/{rpg}', $c->rpgController.'@startAdventure')->name('rpg.start');
+        Route::get('/{rpg}', $c->rpgController.'@startAdventure')->middleware('verify_card')->name('rpg.start');
     });
 
     Route::group(['prefix' => 'card'], function() use($c){
 
-        Route::get('{rpg}/create');
+        Route::get('{rpg}/create', $c->cardController.'@create')->name('card.create');
 
     });
 
