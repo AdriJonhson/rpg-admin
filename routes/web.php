@@ -16,7 +16,7 @@ $c = (object)[
 ];
 
 
-Route::get('/login', 'Admin\\Auth\\LoginController@showLoginForm')->name('admin.form.login');
+Route::get('/', 'Admin\\Auth\\LoginController@showLoginForm')->name('admin.form.login');
 Route::post('/login', 'Admin\\Auth\\LoginController@login')->name('login');
 Route::post('/logout', 'Admin\\Auth\\LoginController@logout')->name('admin.logout');
 
