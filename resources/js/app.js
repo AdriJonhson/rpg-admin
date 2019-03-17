@@ -1,4 +1,9 @@
 require('./bootstrap');
+require('dropify');
+
+$(function(){
+    $('.dropify').dropify();
+});
 
 // window.Vue = require('vue');
 

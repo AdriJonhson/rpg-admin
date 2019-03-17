@@ -36,9 +36,9 @@ Route::group(['middleware' => 'auth'], function() use($c){
         Route::get('/{rpg}', $c->rpgController.'@startAdventure')->middleware('verify_card')->name('rpg.start');
     });
 
-    Route::group(['prefix' => 'card'], function() use($c){
+    Route::get('card/{rpg}/create', $c->cardController.'@create')->name('card.create');
 
-        Route::get('{rpg}/create', $c->cardController.'@create')->name('card.create');
+    Route::group(['prefix' => 'card', 'middleware' => 'verify_card'], function() use($c){
 
     });
 
