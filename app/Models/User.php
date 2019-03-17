@@ -39,4 +39,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function rpgs()
+    {
+        return $this->morphToMany(Rpg::class, 'model', 'rpg_players');
+    }
 }

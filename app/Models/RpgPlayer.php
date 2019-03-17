@@ -14,4 +14,9 @@ class RpgPlayer extends Model
     {
         return $this->morphTo();
     }
+
+    public function rpg()
+    {
+        return $this->belongsTo(Rpg::class);
+    }
 }

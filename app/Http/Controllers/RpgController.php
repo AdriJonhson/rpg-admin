@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Rpg;
+use App\Models\RpgPlayer;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Collection;
 use Yajra\DataTables\DataTables;
 
 class RpgController extends Controller
@@ -15,7 +17,19 @@ class RpgController extends Controller
         $vars = [];
 
         if($request->wantsJson()){
-            $rpgs = Rpg::query();
+
+            if($request->user()->hasRole('player')){
+                $rpgs = new Collection();
+
+                $playerRpgs = RpgPlayer::with('rpg')->where('model_id', $request->user()->id)->get();
+
+                foreach($playerRpgs as $playerRpg){
+                    $rpgs->push($playerRpg->rpg);
+                }
+
+            }else{
+                $rpgs = Rpg::query();
+            }
 
             return DataTables::of($rpgs)->make(true);
         }
@@ -54,7 +68,7 @@ class RpgController extends Controller
        $addPlayer = $rpg->players()->syncWithoutDetaching($request->player);
 
        if(count($addPlayer['attached']) == 0){
-           return redirect()->back()->withInfo('O jogador ja esta participando dessa aventura!');
+           return redirect()->back()->withInfo('O jogador já esta participando dessa aventura!');
        }
 
         return redirect()->back()->withSuccess('Player adicionado com sucesso!');
