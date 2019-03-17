@@ -113,7 +113,7 @@ return [
             'text'        => 'Dashboard',
             'url'         => 'admin/dashboard',
             'icon'        => 'dashboard',
-            'can'         => 'super_admin'
+            'can'         => 'control_system'
         ],
         [
             'text'        => 'RPGS',
@@ -123,7 +123,7 @@ return [
         [
             'text'    => 'Menu do Sistema',
             'icon'    => 'desktop',
-            'can'         => 'super_admin',
+            'can'         => 'control_system',
             'submenu' => [
                 [
                     'text'  => 'Usuários',
