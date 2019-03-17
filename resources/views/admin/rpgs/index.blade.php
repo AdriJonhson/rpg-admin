@@ -142,7 +142,7 @@
         $('#datatables').dataTable({
             processing: true,
             bLengthChange: false,
-            ajax: '/rpgs/',
+            ajax: 'rpgs/',
             columns: [
                 {'data': 'title'},
                 {render: renderStart},
