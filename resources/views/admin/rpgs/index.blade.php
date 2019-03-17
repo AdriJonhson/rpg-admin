@@ -154,8 +154,9 @@
             ]
         });
 
-        function renderStart(){
-            return  `<a class='btn btn-success' href='#'><span class="fa fa-play"></span></a>`;
+        function renderStart(data, type, row){
+            let url = 'rpgs/'+row.slug;
+            return  `<a class='btn btn-success' href='${url}'><span class="fa fa-play"></span></a>`;
         }
 
         function renderAddPlayer(data, type, row){

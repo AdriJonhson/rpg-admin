@@ -80,4 +80,9 @@ class RpgController extends Controller
 
         return $users;
     }
+
+    public function startAdventure(Request $request, Rpg $rpg)
+    {
+        dd($rpg);
+    }
 }
