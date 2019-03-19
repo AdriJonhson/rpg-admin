@@ -42,10 +42,19 @@
                 <div class="form-group">
                     <label for="race" class="col-sm-2">Sub-Raça</label>
                     <div class="col-sm-10">
-                        <select name="race" id="race" class="form-control">
-                            <option value="#" selected disabled>Selecione a sub-raça do seu personagem(caso tenha uma)</option>
-                            @foreach($races as $race)
-                                <option value="{{$race}}">{{$race}}</option>
+                        <select name="sub-race" id="sub-race" class="form-control" disabled>
+                            <option value="#" selected disabled>Selecione primeiramente uma raça</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="race" class="col-sm-2">Classe</label>
+                    <div class="col-sm-10">
+                        <select name="class" id="class" class="form-control">
+                            <option value="#" selected disabled>Selecione a classe do seu personagem</option>
+                            @foreach($classes as $class)
+                                <option value="{{$class}}">{{$class}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -54,56 +63,90 @@
                 <div class="form-group">
                     <label for="personalidade" class="col-sm-2">Personalidade</label>
                     <div class="col-sm-10">
-                        <textarea name="personalidade" id="personalidade" cols="30" rows="10" class="form-control"></textarea>
-                    </div>
-                </div>
-                <hr>
-                <h4>
-                    Atributos
-                </h4>
-                <div class="form-group">
-                    <label for="forca" class="col-sm-2">Força</label>
-                    <div class="col-sm-10 input-group">
-                        <input type="text" class="form-control" id="forca">
-                        <span class="input-group-addon">.00</span>
+                        <textarea name="personalidade" id="personalidade" cols="30" rows="10" class="form-control" placeholder="Personalidade"></textarea>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="destreza" class="col-sm-2">Destreza</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="destreza">
+                {{--ATRIBUTOS--}}
+                <div class="box box-success">
+                    <div class="box-header">
+                        <h3 class="box-title">Atributos</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#attibutes"><i class="fa fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="box-body" id="attibutes">
+                        <div class="input-group">
+                            <input type="number" class="form-control" placeholder="Força" name="force" id="force">
+                            <span class="input-group-addon">0</span>
+                        </div>
+                        <br>
+
+                        <div class="input-group">
+                            <input type="number" class="form-control" placeholder="Destreza" name="skill" id="skill">
+                            <span class="input-group-addon">0</span>
+                        </div>
+                        <br>
+
+                        <div class="input-group">
+                            <input type="number" class="form-control" placeholder="Constituição" name="constitution" id="constitution">
+                            <span class="input-group-addon">0</span>
+                        </div>
+                        <br>
+
+                        <div class="input-group">
+                            <input type="number" class="form-control" placeholder="Sabedoria" name="sapience" id="sapience">
+                            <span class="input-group-addon">0</span>
+                        </div>
+                        <br>
+
+                        <div class="input-group">
+                            <input type="number" class="form-control" placeholder="Carisma" name="charisma" id="charisma">
+                            <span class="input-group-addon">0</span>
+                        </div>
+                        <br>
+
+                        <div class="input-group">
+                            <input type="number" class="form-control" placeholder="Inteligência" name="intelligence" id="intelligence">
+                            <span class="input-group-addon">0</span>
+                        </div>
+                        <br>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="constituicao" class="col-sm-2">Constituição</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="constituicao">
+                {{--Outros Dados--}}
+                <div class="box box-success">
+                    <div class="box-header">
+                        <h4 class="box-title">Dados de Status</h4>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#status"><i class="fa fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="box-body" id="status">
+                        <div class="form-group">
+                            <label for="" class="col-sm-2">Pontos de Vida(HP)</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" placeholder="Quantidade de pontos de Vida">
+                            </div>
+
+                            <label for="" class="col-sm-2">Pontos de Magia(Mana)</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" placeholder="Quantidade de mana">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="" class="col-sm-2">Constituiçao(CA</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" placeholder="Constituiçao">
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <div class="form-group">
-                    <label for="sabedoria" class="col-sm-2">Sabedoria</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="sabedoria">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="carisma" class="col-sm-2">Carisma</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="carisma">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="inteligencia" class="col-sm-2">Inteligência</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inteligencia">
-                    </div>
-                </div>
-
             </div>
             <div class="box-footer">
                 <button class="btn btn-success pull-right"><span class="fa fa-check"></span> Criar</button>
@@ -115,6 +158,35 @@
 @section('js')
     <script>
         $('.dropify').dropify();
+
+        $('#race').on('change', function () {
+            let race = $(this).val();
+
+            let sub_races = $('#sub-race');
+
+            sub_races.prop('disabled', false);
+            sub_races.empty();
+
+            if(race == "Anão"){
+                sub_races.append("<option value='Anão Da Montanha'>Anão Da Montanha</option>");
+                sub_races.append("<option value='Anão Da Colina'>Anão Da Colina</option>");
+            }else if(race == "Elfo"){
+                sub_races.append("<option value='Alto Elfo'>Alto Elfo</option>");
+                sub_races.append("<option value='Elfo da Floresta'>Elfo da Floresta</option>");
+                sub_races.append("<option value='Drow'>Drow</option>");
+            }else if(race == "Halfling"){
+                sub_races.append("<option value='Pés-Leves'>Pés-Leves</option>");
+                sub_races.append("<option value='Robusto'>Robusto</option>");
+            }else if(race == "Gnomo"){
+                sub_races.append("<option value='Gnomo Das Rochas'>Gnomo Das Rochas</option>");
+                sub_races.append("<option value='Gnomo Da Floresta'>Gnomo Da Floresta</option>");
+            }else{
+                sub_races.prop('disabled', true);
+                sub_races.append("<option value='Gnomo Das Rochas' disabled selected>Essa raça nao possui nenhuma sub-raça</option>");
+            }
+
+        });
+
     </script>
 @endsection
 
