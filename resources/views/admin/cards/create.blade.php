@@ -1,163 +1,71 @@
 @extends('adminlte::page')
 
 @section('content')
+
     <div class="box">
         <div class="box-header">
-            <h4>Criação de Personagem</h4>
+            <h4 class="box-title">
+                Ficha
+            </h4>
         </div>
-        <form action="" method="POST" enctype="multipart/form-data" class="form-horizontal">
-            @csrf
-            <div class="box-body">
+        <div class="box-body">
+            <div id="smartwizard" class="sw-main sw-theme-arrows">
+                <ul>
+                    <li><a href="#step-1">Criaçao do personagem<br /><small>Montando personagem</small></a></li>
+                    <li><a href="#step-2">Atributos<br /><small>Atributos do personagem</small></a></li>
+                    <li><a href="#step-3">Status<br /><small>Dados de status</small></a></li>
+                    <li><a href="#step-4">Finalizar<br /><small>Dados Informados</small></a></li>
+                </ul>
 
-                <div class="row">
-                    <div class="col-sm-4 col-sm-offset-4">
-                        <div class="form-group">
-                            {{--src="https://i.imgur.com/dGo8DOk.png"--}}
-                            <input type="file" class="user dropify"
-                                   data-default-file="https://i.imgur.com/dGo8DOk.png"
-                                   data-height="200">
-                        </div>
+                <div>
+                    <div id="step-1" class="">
+                        @include('admin.cards.wizard.personal-data')
                     </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="name" class="col-sm-2">Nome do Personagem</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" name="name" placeholder="Nome do seu personagem para essa aventura">
+                    <div id="step-2" class="">
+                        @include('admin.cards.wizard.attributes')
                     </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="race" class="col-sm-2">Raça</label>
-                    <div class="col-sm-10">
-                        <select name="race" id="race" class="form-control">
-                            <option value="#" selected disabled>Raça do seu personagem</option>
-                            @foreach($races as $race)
-                                <option value="{{$race}}">{{$race}}</option>
-                            @endforeach
-                        </select>
+                    <div id="step-3" class="">
+                        @include('admin.cards.wizard.status')
                     </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="race" class="col-sm-2">Sub-Raça</label>
-                    <div class="col-sm-10">
-                        <select name="sub-race" id="sub-race" class="form-control" disabled>
-                            <option value="#" selected disabled>Selecione primeiramente uma raça</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="race" class="col-sm-2">Classe</label>
-                    <div class="col-sm-10">
-                        <select name="class" id="class" class="form-control">
-                            <option value="#" selected disabled>Selecione a classe do seu personagem</option>
-                            @foreach($classes as $class)
-                                <option value="{{$class}}">{{$class}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="personalidade" class="col-sm-2">Personalidade</label>
-                    <div class="col-sm-10">
-                        <textarea name="personalidade" id="personalidade" cols="30" rows="10" class="form-control" placeholder="Personalidade"></textarea>
-                    </div>
-                </div>
-
-                {{--ATRIBUTOS--}}
-                <div class="box box-success">
-                    <div class="box-header">
-                        <h3 class="box-title">Atributos</h3>
-                        <div class="box-tools pull-right">
-                            <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#attibutes"><i class="fa fa-minus"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="box-body" id="attibutes">
-                        <div class="input-group">
-                            <input type="number" class="form-control" placeholder="Força" name="force" id="force">
-                            <span class="input-group-addon">0</span>
-                        </div>
-                        <br>
-
-                        <div class="input-group">
-                            <input type="number" class="form-control" placeholder="Destreza" name="skill" id="skill">
-                            <span class="input-group-addon">0</span>
-                        </div>
-                        <br>
-
-                        <div class="input-group">
-                            <input type="number" class="form-control" placeholder="Constituição" name="constitution" id="constitution">
-                            <span class="input-group-addon">0</span>
-                        </div>
-                        <br>
-
-                        <div class="input-group">
-                            <input type="number" class="form-control" placeholder="Sabedoria" name="sapience" id="sapience">
-                            <span class="input-group-addon">0</span>
-                        </div>
-                        <br>
-
-                        <div class="input-group">
-                            <input type="number" class="form-control" placeholder="Carisma" name="charisma" id="charisma">
-                            <span class="input-group-addon">0</span>
-                        </div>
-                        <br>
-
-                        <div class="input-group">
-                            <input type="number" class="form-control" placeholder="Inteligência" name="intelligence" id="intelligence">
-                            <span class="input-group-addon">0</span>
-                        </div>
-                        <br>
-                    </div>
-                </div>
-
-                {{--Outros Dados--}}
-                <div class="box box-success">
-                    <div class="box-header">
-                        <h4 class="box-title">Dados de Status</h4>
-                        <div class="box-tools pull-right">
-                            <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#status"><i class="fa fa-minus"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="box-body" id="status">
-                        <div class="form-group">
-                            <label for="" class="col-sm-2">Pontos de Vida(HP)</label>
-                            <div class="col-sm-4">
-                                <input type="number" class="form-control" placeholder="Quantidade de pontos de Vida">
-                            </div>
-
-                            <label for="" class="col-sm-2">Pontos de Magia(Mana)</label>
-                            <div class="col-sm-4">
-                                <input type="number" class="form-control" placeholder="Quantidade de mana">
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="" class="col-sm-2">Constituiçao(CA</label>
-                            <div class="col-sm-4">
-                                <input type="number" class="form-control" placeholder="Constituiçao">
-                            </div>
-                        </div>
+                    <div id="step-4" class="">
+                        @include('admin.cards.wizard.finish')
                     </div>
                 </div>
             </div>
-            <div class="box-footer">
-                <button class="btn btn-success pull-right"><span class="fa fa-check"></span> Criar</button>
-            </div>
-        </form>
+        </div>
     </div>
+
+
 @stop
 
 @section('js')
     <script>
         $('.dropify').dropify();
+
+        $(document).ready(function(){
+            $('#smartwizard').smartWizard({
+                useURLhash: false,
+                lang: {  // Language variables
+                    next: 'Próximo',
+                    previous: 'Anterior'
+                },
+                transitionEffect: 'fade',
+            });
+
+            $("#smartwizard").on("showStep", function(e, anchorObject, stepNumber, stepDirection) {
+                if(stepNumber == 1){
+
+                }
+
+                if(stepNumber == 2){
+                    alert('Dados de status');
+                }
+
+                if(stepNumber == 3){
+                    alert('finalizar....');
+                }
+            });
+        });
 
         $('#race').on('change', function () {
             let race = $(this).val();
@@ -184,8 +92,44 @@
                 sub_races.prop('disabled', true);
                 sub_races.append("<option value='Gnomo Das Rochas' disabled selected>Essa raça nao possui nenhuma sub-raça</option>");
             }
-
         });
+
+        function setAttributes(race) {
+
+            let force           = parseInt($('#force').val());
+            let skill           = parseInt($('#skill').val());
+            let constitution    = parseInt($('#constitution').val());
+            let sapience        = parseInt($('#sapience').val());
+            let charisma        = parseInt($('#charisma').val());
+            let intelligence    = parseInt($('#intelligence').val());
+
+            if(race == "Anão"){
+
+                $('#constitution').val(constitution + 2);
+
+            }else if(race == "Elfo"){
+
+            }else if(race == "Halfling"){
+
+            }else if(race == "Gnomo"){
+
+            }else if(race == "Draconato"){
+
+                $('#force').val(force + 2);
+
+            }else if(race == "Humano"){
+
+                $('#force').val(force + 1);
+
+            }else if(race == "Meio-Orc"){
+
+                $('#force').val(force + 2);
+
+            }
+
+
+
+        }
 
     </script>
 @endsection
@@ -199,11 +143,6 @@
             border-radius: 50%;
 
             object-fit: cover;
-        }
-
-        .col-centered{
-            margin: 0 auto;
-            float: none;
         }
     </style>
 @endsection
