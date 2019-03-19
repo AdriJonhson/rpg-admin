@@ -3,13 +3,14 @@
 <label for="">Força</label>
 <div class="input-group">
     {{--<input type="number" class="form-control" placeholder="Força" name="force" id="force">--}}
-    <select name="force" id="force" class="form-control">
-        <option value="">8</option>
-        <option value="">10</option>
-        <option value="">12</option>
-        <option value="">13</option>
-        <option value="">14</option>
-        <option value="">15</option>
+    <select class="form-control atrributes" name="force" id="force" >
+        <option value="">Selecione o valor do atributo</option>
+        <option value="8">8</option>
+        <option value="10">10</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
     </select>
     <span class="input-group-addon">0</span>
 </div>
@@ -17,35 +18,75 @@
 
 <label for="">Destreza</label>
 <div class="input-group">
-    <input type="number" class="form-control" placeholder="Destreza" name="skill" id="skill">
+    <select class="form-control atrributes" name="skill" id="skill">
+        <option value="">Selecione o valor do atributo</option>
+        <option value="8">8</option>
+        <option value="10">10</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+    </select>
     <span class="input-group-addon">0</span>
 </div>
 <br>
 
 <label for="">Constituição</label>
 <div class="input-group">
-    <input type="number" class="form-control" placeholder="Constituição" name="constitution" id="constitution">
+    <select class="form-control atrributes" name="constitution" id="constitution">
+        <option value="">Selecione o valor do atributo</option>
+        <option value="8">8</option>
+        <option value="10">10</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+    </select>
     <span class="input-group-addon">0</span>
 </div>
 <br>
 
 <label for="">Sabedoria</label>
 <div class="input-group">
-    <input type="number" class="form-control" placeholder="Sabedoria" name="sapience" id="sapience">
+    <select class="form-control atrributes" name="sapience" id="sapience">
+        <option value="">Selecione o valor do atributo</option>
+        <option value="8">8</option>
+        <option value="10">10</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+    </select>
     <span class="input-group-addon">0</span>
 </div>
 <br>
 
 <label for="">Carisma</label>
 <div class="input-group">
-    <input type="number" class="form-control" placeholder="Carisma" name="charisma" id="charisma">
+    <select class="form-control atrributes" name="charisma" id="charisma">
+        <option value="">Selecione o valor do atributo</option>
+        <option value="8">8</option>
+        <option value="10">10</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+    </select>
     <span class="input-group-addon">0</span>
 </div>
 <br>
 
 <label for="">Inteligência</label>
 <div class="input-group">
-    <input type="number" class="form-control" placeholder="Inteligência" name="intelligence" id="intelligence">
+    <select class="form-control atrributes" name="intelligence" id="intelligence">
+        <option value="">Selecione o valor do atributo</option>
+        <option value="8">8</option>
+        <option value="10">10</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+    </select>
     <span class="input-group-addon">0</span>
 </div>
 <br>
