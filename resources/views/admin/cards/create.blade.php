@@ -66,11 +66,11 @@
                 }
 
                 if (stepNumber == 2) {
-                    alert('Dados de status');
+                    //alert('Dados de status');
                 }
 
                 if (stepNumber == 3) {
-                    alert('finalizar....');
+                    finishCard();
                 }
             });
         });
@@ -127,40 +127,7 @@
             $(this).closest('div').find('.input-group-addon').text(modify)
         });
 
-        function setAttributes(race) {
-
-            let force = parseInt($('#force').val());
-            let skill = parseInt($('#skill').val());
-            let constitution = parseInt($('#constitution').val());
-            let sapience = parseInt($('#sapience').val());
-            let charisma = parseInt($('#charisma').val());
-            let intelligence = parseInt($('#intelligence').val());
-
-            if (race == "Anão") {
-
-                $('#constitution').val(constitution + 2);
-
-            } else if (race == "Elfo") {
-
-            } else if (race == "Halfling") {
-
-            } else if (race == "Gnomo") {
-
-            } else if (race == "Draconato") {
-
-                $('#force').val(force + 2);
-
-            } else if (race == "Humano") {
-
-                $('#force').val(force + 1);
-
-            } else if (race == "Meio-Orc") {
-
-                $('#force').val(force + 2);
-
-            }
-        }
-
+        //JS para resetar os atributos
         $('.btn-reset').on('click', function () {
             $('.atrributes').empty();
             $('.atrributes').append('<option value="">Selecione o valor do atributo</option>');
@@ -177,19 +144,166 @@
             })
         });
 
-        $("#smartwizard").on("leaveStep", function(e, anchorObject, stepNumber, stepDirection) {
-            var elmForm = $("#form-step-" + stepNumber);
+        function finishCard()
+        {
+            let race = $('#race').val();
+            let subRace = $('#sub_race').val();
 
-            if(stepDirection === 'forward' && elmForm){
-                elmForm.validator('validate');
-                var elmErr = elmForm.children('.has-error');
-                if(elmErr && elmErr.length > 0){
-                    // Form validation failed
-                    return false;
-                }
+            setAttributesRace(race);
+            setAttributesSubrace(subRace);
+            mountCard();
+            calculateLife();
+        }
+
+        function calculateLife()
+        {
+            let classPlayer = $('#class').val();
+            let ca = $('#ca').val();
+            let life = 0;
+
+            if(classPlayer == "Bardo" || classPlayer == "Clérigo"
+                || classPlayer == "Bruxo" || classPlayer == "Druida" || classPlayer == "Ladino"
+                || classPlayer == "Monge"){
+                life = 8;
+            }else if(classPlayer == "Bárbaro"){
+                life = 12;
+            }else if(classPlayer == "Feiticeiro" || classPlayer == "Mago"){
+                life = 6;
+            }else if(classPlayer == "Guerreiro" || classPlayer == "Paladino"
+                || classPlayer == "Patrulheiro"){
+                life = 10;
             }
-            return true;
-        });
+
+            life += parseInt(ca);
+
+            $('#char_hp').text(life+'/'+life);
+        }
+
+        function setAttributesRace(race)
+        {
+            let force = parseInt($('#force').val());
+            let skill = parseInt($('#skill').val());
+            let constitution = parseInt($('#constitution').val());
+            let sapience = parseInt($('#sapience').val());
+            let charisma = parseInt($('#charisma').val());
+            let intelligence = parseInt($('#intelligence').val());
+
+            if(race == "Humano"){
+                $('#force').val(force + 1);
+                $('#skill').val(skill + 1);
+                $('#constitution').val(constitution + 1);
+                $('#intelligence').val(intelligence + 1);
+                $('#sapience').val(sapience + 1);
+               // $('#charisma').val(charisma + 1);
+
+                let test = $('#charisma').val();
+
+                console.log(test);
+            }else if(race == "Draconato"){
+                $('#force').val(force + 2);
+                $('#charisma').val(force + 1);
+            }else if(race == "Meio-Orc"){
+                $('#force').val(force + 2);
+                $('#constitution').val(constitution + 1);
+            }else if(race == "Elfo"){
+                $('#skill').val(skill + 2);
+            }else if(race == "Halfling"){
+                $('#skill').val(skill + 2);
+            }else if(race == "Anão"){
+                $('#constitution').val(constitution + 2);
+            }else if(race == "Gnomo"){
+                $('#intelligence').val(intelligence + 2);
+            }else if(race == "Tiefling"){
+                $('#intelligence').val(intelligence + 1);
+                $('#charisma').val(charisma + 2);
+            }else if(race == "Meio-Elfo"){
+                $('#charisma').val(charisma + 2);
+            }
+        }
+
+        function setAttributesSubrace(subRace)
+        {
+
+            let force = parseInt($('#force').val());
+            let skill = parseInt($('#skill').val());
+            let constitution = parseInt($('#constitution').val());
+            let sapience = parseInt($('#sapience').val());
+            let charisma = parseInt($('#charisma').val());
+            let intelligence = parseInt($('#intelligence').val());
+
+            if(subRace == "Anão da Montanha"){
+                $('#force').val(force + 2);
+            }else if(subRace == "Gnomo da Floresta"){
+                $('#skill').val(skill + 2);
+            }else if(subRace == "Halfling Robusto"){
+                $('#constitution').val(constitution + 1);
+            }else if(subRace == "Gnomo Das Rochas"){
+                $('#constitution').val(constitution + 1);
+            }else if(subRace == "Alto Elfo"){
+                $('#intelligence').val(intelligence + 1);
+            }else if(subRace == "Anão Da Colina"){
+                $('#sapience').val(sapience + 1);
+            }else if(subRace == "Elfo Da Floresta"){
+                $('#sapience').val(sapience + 1);
+            }else if(race == "Meio-Elfo"){
+                $('#charisma').val(charisma + 2);
+            }else if(subRace == "Drow"){
+                $('#charisma').val(charisma + 1);
+            }else if(subRace == "Pés-Leves"){
+                $('#charisma').val(charisma + 1);
+            }
+        }
+
+        function mountCard()
+        {
+            let mp = $('#mp').val();
+            let name = $('#name').val();
+            let race = $('#race').val();
+            let subRace = $('#sub-race').val();
+            let clasPlayer = $('#class').val();
+            let ca = $('#ca').val();
+
+            let textRace = '';
+
+            if(subRace == null){
+                textRace = race + ' | ' + clasPlayer;
+            }else{
+                textRace = race + ' | ' + subRace + ' | ' + clasPlayer;
+            }
+
+            $('#char_name').text(name);
+            $('#char_class_race').text(textRace);
+            $('#char_mp').text(mp+'/'+mp);
+            $('#char_ca').text(ca);
+
+            let force = parseInt($('#force').val());
+            let skill = parseInt($('#skill').val());
+            let constitution = parseInt($('#constitution').val());
+            let sapience = parseInt($('#sapience').val());
+            let charisma = parseInt($('#charisma').val());
+            let intelligence = parseInt($('#intelligence').val());
+
+            $('#char_force').text(force);
+            $('#char_skill').text(skill);
+            $('#char_constitution').text(constitution);
+            $('#char_sapience').text(sapience);
+            $('#char_charisma').text(charisma);
+            $('#char_intelligence').text(intelligence);
+        }
+
+        // $("#smartwizard").on("leaveStep", function(e, anchorObject, stepNumber, stepDirection) {
+        //     var elmForm = $("#form-step-" + stepNumber);
+        //
+        //     if(stepDirection === 'forward' && elmForm){
+        //         elmForm.validator('validate');
+        //         var elmErr = elmForm.children('.has-error');
+        //         if(elmErr && elmErr.length > 0){
+        //             // Form validation failed
+        //             return false;
+        //         }
+        //     }
+        //     return true;
+        // });
     </script>
 @endsection
 

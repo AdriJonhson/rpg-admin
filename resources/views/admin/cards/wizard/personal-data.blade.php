@@ -14,7 +14,7 @@
         <div class="form-group">
             <label for="name" class="col-sm-2">Nome do Personagem</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" name="name" placeholder="Nome do seu personagem para essa aventura" required>
+                <input type="text" class="form-control" name="name" id="name" placeholder="Nome do seu personagem para essa aventura" required>
             </div>
         </div>
         <br><br><br>
