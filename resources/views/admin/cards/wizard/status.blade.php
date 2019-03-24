@@ -1,27 +1,23 @@
 <div class="box">
     <div class="box-body" id="status">
+        <div id="form-step-2" role="form" data-toggle="validator">
 
-        <div class="form-group">
-            <label for="name" class="col-sm-2">Pontos de Vida(HP)</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" name="name" placeholder="Pontos de vida">
+            <div class="form-group">
+                <label for="name" class="col-sm-2">Pontos de Magia(Mana)</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" name="name" placeholder="Quantidade de mana" required>
+                </div>
             </div>
-        </div>
-        <br><br>
+            <br><br>
 
-        <div class="form-group">
-            <label for="name" class="col-sm-2">Pontos de Magia(Mana)</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" name="name" placeholder="Quantidade de mana">
+            <div class="form-group">
+                <label for="name" class="col-sm-2">Classe de Armadura(CA)</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" name="name" placeholder="Classe de Armadura" required>
+                </div>
             </div>
-        </div>
-        <br><br>
+            <br><br>
 
-        <div class="form-group">
-            <label for="name" class="col-sm-2">Constituição(CA)</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" name="name" placeholder="Constituição">
-            </div>
         </div>
     </div>
 </div>

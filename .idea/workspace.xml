@@ -5,6 +5,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/cards/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/cards/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/cards/wizard/attributes.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/cards/wizard/attributes.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/cards/wizard/personal-data.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/cards/wizard/personal-data.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/cards/wizard/status.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/cards/wizard/status.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/adminlte/master.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,12 +19,12 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/cards/create.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="111" lean-forward="true" selection-start-line="111" selection-end-line="111" />
+            <state relative-caret-position="1296">
+              <caret line="176" column="14" lean-forward="true" selection-start-line="176" selection-start-column="14" selection-end-line="176" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -29,8 +32,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/cards/wizard/personal-data.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1449">
-              <caret line="63" column="12" selection-start-line="63" selection-start-column="12" selection-end-line="63" selection-end-column="12" />
+            <state relative-caret-position="252">
+              <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -38,26 +41,46 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/cards/wizard/attributes.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="5" column="68" selection-start-line="5" selection-start-column="68" selection-end-line="5" selection-end-column="68" />
+            <state relative-caret-position="288">
+              <caret line="100" column="105" selection-start-line="100" selection-start-column="105" selection-end-line="100" selection-end-column="105" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/cards/wizard/status.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="6" column="95" selection-start-line="6" selection-start-column="95" selection-end-line="6" selection-end-column="95" />
+            <state relative-caret-position="147">
+              <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/vendor/adminlte/master.blade.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CardController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
+            <state>
+              <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+              <folding>
+                <element signature="e#40#60#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/RpgController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="25" column="51" selection-start-line="25" selection-start-column="51" selection-end-line="25" selection-end-column="51" />
+              <folding>
+                <element signature="e#855#956#0#PHP" />
+                <element signature="e#1024#1201#0#PHP" />
+                <element signature="e#1409#1575#0#PHP" />
+                <element signature="e#1581#1961#0#PHP" />
+                <element signature="e#1726#1872#0#PHP" />
+                <element signature="e#1967#2101#0#PHP" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -70,6 +93,7 @@
       <find>datatabl</find>
       <find>&lt;/option&gt;</find>
       <find>smartwizard</find>
+      <find>form-step</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -123,15 +147,15 @@
         <option value="$PROJECT_DIR$/app/Models/Card.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CardController.php" />
         <option value="$PROJECT_DIR$/public/js/jquery.smartWizard.js" />
-        <option value="$PROJECT_DIR$/resources/views/vendor/adminlte/master.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/cards/attributes.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/cards/status.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/cards/personal-data.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/cards/finish.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/cards/wizard/personal-data.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/cards/wizard/status.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/cards/wizard/attributes.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/vendor/adminlte/master.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/cards/create.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/cards/wizard/personal-data.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/cards/wizard/attributes.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/cards/wizard/status.blade.php" />
       </list>
     </option>
   </component>
@@ -251,12 +275,31 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="rpg-admin" type="b2602c69:ProjectViewProjectNode" />
               <item name="rpg-admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rpg-admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rpg-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rpg-admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rpg-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rpg-admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rpg-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="rpg-admin" type="b2602c69:ProjectViewProjectNode" />
@@ -288,7 +331,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -297,7 +339,8 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -359,18 +402,23 @@
       <workItem from="1553012789833" duration="450000" />
       <workItem from="1553013347121" duration="1665000" />
       <workItem from="1553015029269" duration="10495000" />
-      <workItem from="1553030117467" duration="583000" />
+      <workItem from="1553030117467" duration="884000" />
+      <workItem from="1553044208297" duration="26000" />
+      <workItem from="1553045768513" duration="24000" />
+      <workItem from="1553045807032" duration="84000" />
+      <workItem from="1553219101719" duration="2577000" />
+      <workItem from="1553375772928" duration="8180000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72059000" />
+    <option name="totallyTimeSpent" value="83251000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1366" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.17348485" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.19742814" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="npm" order="3" side_tool="true" />
@@ -386,13 +434,14 @@
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="TypeScript" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17348485" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19742814" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="npm" order="3" side_tool="true" />
@@ -408,6 +457,7 @@
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="TypeScript" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -418,13 +468,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/components/modal_delete.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="40" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/api.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -585,26 +628,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/RpgController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
-          <folding>
-            <element signature="e#287#1018#0#PHP" />
-            <element signature="e#362#845#0#PHP" />
-            <element signature="e#402#780#0#PHP" />
-            <element signature="e#605#708#0#PHP" />
-            <element signature="e#723#780#0#PHP" />
-            <element signature="e#855#956#0#PHP" />
-            <element signature="e#1024#1201#0#PHP" />
-            <element signature="e#1409#1575#0#PHP" />
-            <element signature="e#1581#1961#0#PHP" />
-            <element signature="e#1726#1872#0#PHP" />
-            <element signature="e#1967#2101#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -732,16 +755,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CardController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="16" column="16" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="16" />
-          <folding>
-            <element signature="e#40#60#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/rpgs/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
@@ -766,38 +779,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/cards/create.blade.php">
+    <entry file="file://$PROJECT_DIR$/node_modules/vue/types/options.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="111" lean-forward="true" selection-start-line="111" selection-end-line="111" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/cards/wizard/personal-data.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1449">
-          <caret line="63" column="12" selection-start-line="63" selection-start-column="12" selection-end-line="63" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/cards/wizard/attributes.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="68" selection-start-line="5" selection-start-column="68" selection-end-line="5" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/cards/wizard/status.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="95" selection-start-line="6" selection-start-column="95" selection-end-line="6" selection-end-column="95" />
+        <state relative-caret-position="249">
+          <caret line="159" column="40" selection-start-line="159" selection-start-column="40" selection-end-line="159" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/vendor/adminlte/master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="261">
+          <caret line="53" column="113" selection-start-line="53" selection-start-column="113" selection-end-line="53" selection-end-column="113" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CardController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+          <folding>
+            <element signature="e#40#60#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/RpgController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="25" column="51" selection-start-line="25" selection-start-column="51" selection-end-line="25" selection-end-column="51" />
+          <folding>
+            <element signature="e#855#956#0#PHP" />
+            <element signature="e#1024#1201#0#PHP" />
+            <element signature="e#1409#1575#0#PHP" />
+            <element signature="e#1581#1961#0#PHP" />
+            <element signature="e#1726#1872#0#PHP" />
+            <element signature="e#1967#2101#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/cards/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1296">
+          <caret line="176" column="14" lean-forward="true" selection-start-line="176" selection-start-column="14" selection-end-line="176" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/cards/wizard/personal-data.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/cards/wizard/attributes.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="100" column="105" selection-start-line="100" selection-start-column="105" selection-end-line="100" selection-end-column="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/cards/wizard/status.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
         </state>
       </provider>
     </entry>

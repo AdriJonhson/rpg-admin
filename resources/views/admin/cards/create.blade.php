@@ -75,6 +75,7 @@
             });
         });
 
+        //JS que vai setar as sub-raças dependendo da raça selecionada
         $('#race').on('change', function () {
             let race = $(this).val();
 
@@ -102,25 +103,28 @@
             }
         });
 
+        //JS que vai remover o valor do atributo selecionado dos outros selects
         $('.atrributes').on('change', function () {
-            let value = $(this).val();
+            let value = parseInt($(this).val());
+            let modify = 0;
 
-            let removeValues = [];
-            let exist = false;
-
-            removeValues.push(value);
+            $(this).prop('disabled', true);
 
             $(".atrributes option[value=" + value + "]").remove();
 
-            // removeValues.each(function(index, value){
-            //     $(".atrributes").each(function(attIndex, attValue){
-            //         if($(attValue).val() == value){
-            //             exist = true;
-            //         }
-            //     });
-            // });
+            $(this).append("<option value="+value+" selected>"+value+"</option>");
 
-            $(this).append("<option value="+value+" selected>"+value+"</option>")
+            if(value === 8){
+                modify = "-1"
+            }else if(value === 10){
+                modify = "+0"
+            }else if(value === 12 || value === 13){
+                modify = "+1"
+            }else if(value === 14 || value === 15){
+                modify = "+2"
+            }
+
+            $(this).closest('div').find('.input-group-addon').text(modify)
         });
 
         function setAttributes(race) {
@@ -157,6 +161,35 @@
             }
         }
 
+        $('.btn-reset').on('click', function () {
+            $('.atrributes').empty();
+            $('.atrributes').append('<option value="">Selecione o valor do atributo</option>');
+            $('.atrributes').append("<option value=\"8\">8</option>");
+            $('.atrributes').append("<option value=\"10\">10</option>");
+            $('.atrributes').append("<option value=\"12\">12</option>");
+            $('.atrributes').append("<option value=\"13\">13</option>");
+            $('.atrributes').append("<option value=\"14\">14</option>");
+            $('.atrributes').append("<option value=\"15\">15</option>");
+            $('.atrributes').prop('disabled', false);
+
+            $('.atrributes').each(function(index, key){
+                $(this).closest('div').find('.input-group-addon').text(0)
+            })
+        });
+
+        $("#smartwizard").on("leaveStep", function(e, anchorObject, stepNumber, stepDirection) {
+            var elmForm = $("#form-step-" + stepNumber);
+
+            if(stepDirection === 'forward' && elmForm){
+                elmForm.validator('validate');
+                var elmErr = elmForm.children('.has-error');
+                if(elmErr && elmErr.length > 0){
+                    // Form validation failed
+                    return false;
+                }
+            }
+            return true;
+        });
     </script>
 @endsection
 
