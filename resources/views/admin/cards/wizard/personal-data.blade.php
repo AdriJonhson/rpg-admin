@@ -6,7 +6,7 @@
                 {{--src="https://i.imgur.com/dGo8DOk.png"--}}
                 <input type="file" class="user dropify"
                        data-default-file="https://i.imgur.com/dGo8DOk.png"
-                       data-height="200">
+                       data-height="200" id="perfil">
             </div>
         </div>
     </div>

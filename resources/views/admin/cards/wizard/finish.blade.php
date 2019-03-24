@@ -4,9 +4,12 @@
             <div class="col-sm-4 col-sm-offset-4">
                 <div class="form-group">
                     {{--src="https://i.imgur.com/dGo8DOk.png"--}}
-                    <input type="file" class="user dropify"
-                           data-default-file="https://i.imgur.com/dGo8DOk.png"
-                           data-height="200" id="char_image" disabled>
+                    {{--<input type="file" class="user dropify"--}}
+                           {{--data-default-file="https://i.imgur.com/dGo8DOk.png"--}}
+                           {{--data-height="200" id="char_image" disabled>--}}
+                    <img class="profile-user-img img-responsive img-circle"
+                         src="https://i.imgur.com/dGo8DOk.png"
+                         alt="User profile" id="uploadImage">
                 </div>
             </div>
         </div>
@@ -61,6 +64,23 @@
                     <tr>
                         <th colspan="2">Nenhum Equipamento Selecionado</th>
                     </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>Magias</h4>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Tipo</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th colspan="2">Nenhum Equipamento Selecionado</th>
+                </tr>
                 </tbody>
             </table>
         </div>

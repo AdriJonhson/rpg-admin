@@ -49,8 +49,6 @@
 @section('js')
     <script>
 
-
-
         $('.dropify').dropify();
 
         $(document).ready(function () {
@@ -289,12 +287,12 @@
                 }
             }
 
-            $('#char_force').text(calcForce == 0 ? force : calcForce);
-            $('#char_skill').text(calcSkill == 0 ? skill : calcSkill);
-            $('#char_constitution').text(calcConstitution == 0 ? constitution : calcConstitution);
-            $('#char_sapience').text(calcSapience == 0 ? sapience : calcSapience);
-            $('#char_charisma').text(calcCharisma == 0 ? charisma : calcCharisma);
-            $('#char_intelligence').text(calcIntelligence == 0 ? intelligence : calcIntelligence);
+            $('#char_force').text(setAttributoAndModify(calcForce == 0 ? force : calcForce));
+            $('#char_skill').text(setAttributoAndModify(calcSkill == 0 ? skill : calcSkill));
+            $('#char_constitution').text(setAttributoAndModify(calcConstitution == 0 ? constitution : calcConstitution));
+            $('#char_sapience').text(setAttributoAndModify(calcSapience == 0 ? sapience : calcSapience));
+            $('#char_charisma').text(setAttributoAndModify(calcCharisma == 0 ? charisma : calcCharisma));
+            $('#char_intelligence').text(setAttributoAndModify(calcIntelligence == 0 ? intelligence : calcIntelligence));
         }
 
         function mountCard()
@@ -325,6 +323,66 @@
             // $('#char_sapience').text(calcSapience);
             // $('#char_charisma').text(calcCharisma);
             // $('#char_intelligence').text(calcIntelligence);
+        }
+
+        function setAttributoAndModify(value)
+        {
+            let text = '';
+            if(value == 8 || value == 9){
+                text = value + ' | -1';
+
+            }else if(value == 10 || value == 11){
+                text = value + ' | +0';
+
+            }else if(value == 12 || value == 13){
+                text = value + ' | +1'
+
+            }else if(value == 14 || value == 15){
+                text = value + ' | +2'
+
+            }else if(value == 16 || value == 17){
+                text = value + ' | +3'
+
+            }else if(value == 18 || value == 19){
+                text = value + ' | +4'
+
+            }else if(value == 20 || value == 21){
+                text = value + ' | +5'
+
+            }else if(value == 22 || value == 23){
+                text = value + ' | +6'
+
+            }else if(value == 24 || value == 25){
+                text = value + ' | +7'
+
+            }else if(value == 26 || value == 27){
+                text = value + ' | +8'
+
+            }else if(value == 28 || value == 29){
+                text = value + ' | +9'
+
+            }else if(value == 30){
+                text = value + ' | +10'
+            }
+
+            return text;
+        }
+
+        $('#perfil').on('change', function(){
+            readURL(this);
+        });
+
+        function readURL(input) {
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#uploadImage').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
         }
 
         // $("#smartwizard").on("leaveStep", function(e, anchorObject, stepNumber, stepDirection) {
