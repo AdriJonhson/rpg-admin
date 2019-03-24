@@ -48,6 +48,9 @@
 
 @section('js')
     <script>
+
+
+
         $('.dropify').dropify();
 
         $(document).ready(function () {
@@ -147,10 +150,9 @@
         function finishCard()
         {
             let race = $('#race').val();
-            let subRace = $('#sub_race').val();
+            let subRace = $('#sub-race').val();
 
-            setAttributesRace(race);
-            setAttributesSubrace(subRace);
+            setAttributesRace(race, subRace);
             mountCard();
             calculateLife();
         }
@@ -179,8 +181,15 @@
             $('#char_hp').text(life+'/'+life);
         }
 
-        function setAttributesRace(race)
+        function setAttributesRace(race, subRace)
         {
+            let calcForce           = 0;
+            let calcSkill           = 0;
+            let calcConstitution    = 0;
+            let calcSapience        = 0;
+            let calcCharisma        = 0;
+            let calcIntelligence    = 0;
+
             let force = parseInt($('#force').val());
             let skill = parseInt($('#skill').val());
             let constitution = parseInt($('#constitution').val());
@@ -189,69 +198,103 @@
             let intelligence = parseInt($('#intelligence').val());
 
             if(race == "Humano"){
-                $('#force').val(force + 1);
-                $('#skill').val(skill + 1);
-                $('#constitution').val(constitution + 1);
-                $('#intelligence').val(intelligence + 1);
-                $('#sapience').val(sapience + 1);
+                // $('#force').val(force + 1);
+                // $('#skill').val(skill + 1);
+                // $('#constitution').val(constitution + 1);
+                // $('#intelligence').val(intelligence + 1);
+                // $('#sapience').val(sapience + 1);
+
+                calcForce = force + 1;
+                calcSkill = skill + 1;
+                calcConstitution = constitution + 1;
+                calcSapience = sapience + 1;
+                calcCharisma = charisma + 1;
+                calcIntelligence = intelligence + 1;
+
                // $('#charisma').val(charisma + 1);
 
-                let test = $('#charisma').val();
-
-                console.log(test);
             }else if(race == "Draconato"){
-                $('#force').val(force + 2);
-                $('#charisma').val(force + 1);
+                // $('#force').val(force + 2);
+                // $('#charisma').val(force + 1);
+
+                calcForce = force + 1;
+                calcCharisma = charisma + 1;
+
             }else if(race == "Meio-Orc"){
-                $('#force').val(force + 2);
-                $('#constitution').val(constitution + 1);
+                // $('#force').val(force + 2);
+                // $('#constitution').val(constitution + 1);
+
+                calcForce = force + 2;
+                calcConstitution = constitution + 1;
+
             }else if(race == "Elfo"){
-                $('#skill').val(skill + 2);
+                // $('#skill').val(skill + 2);
+
+                calcSkill = skill + 2;
             }else if(race == "Halfling"){
-                $('#skill').val(skill + 2);
+                // $('#skill').val(skill + 2);
+
+                calcSkill = skill + 2;
             }else if(race == "Anão"){
-                $('#constitution').val(constitution + 2);
+                // $('#constitution').val(constitution + 2);
+
+                calcConstitution = constitution + 2;
             }else if(race == "Gnomo"){
-                $('#intelligence').val(intelligence + 2);
+                // $('#intelligence').val(intelligence + 2);
+
+                calcIntelligence = intelligence + 2;
             }else if(race == "Tiefling"){
-                $('#intelligence').val(intelligence + 1);
-                $('#charisma').val(charisma + 2);
+                // $('#intelligence').val(intelligence + 1);
+                // $('#charisma').val(charisma + 2);
+
+                calcIntelligence = intelligence + 1;
+                calcCharisma = charisma + 2;
+
             }else if(race == "Meio-Elfo"){
-                $('#charisma').val(charisma + 2);
+                // $('#charisma').val(charisma + 2);
+                calcCharisma = charisma + 2;
             }
-        }
 
-        function setAttributesSubrace(subRace)
-        {
-
-            let force = parseInt($('#force').val());
-            let skill = parseInt($('#skill').val());
-            let constitution = parseInt($('#constitution').val());
-            let sapience = parseInt($('#sapience').val());
-            let charisma = parseInt($('#charisma').val());
-            let intelligence = parseInt($('#intelligence').val());
-
-            if(subRace == "Anão da Montanha"){
-                $('#force').val(force + 2);
-            }else if(subRace == "Gnomo da Floresta"){
-                $('#skill').val(skill + 2);
-            }else if(subRace == "Halfling Robusto"){
-                $('#constitution').val(constitution + 1);
-            }else if(subRace == "Gnomo Das Rochas"){
-                $('#constitution').val(constitution + 1);
-            }else if(subRace == "Alto Elfo"){
-                $('#intelligence').val(intelligence + 1);
-            }else if(subRace == "Anão Da Colina"){
-                $('#sapience').val(sapience + 1);
-            }else if(subRace == "Elfo Da Floresta"){
-                $('#sapience').val(sapience + 1);
-            }else if(race == "Meio-Elfo"){
-                $('#charisma').val(charisma + 2);
-            }else if(subRace == "Drow"){
-                $('#charisma').val(charisma + 1);
-            }else if(subRace == "Pés-Leves"){
-                $('#charisma').val(charisma + 1);
+            if(subRace != null){
+                if(subRace == "Anão da Montanha"){
+                    // $('#force').val(force + 2);
+                    calcForce += 2;
+                }else if(subRace == "Gnomo da Floresta"){
+                    // $('#skill').val(skill + 2);
+                    calcSkill +=  2;
+                }else if(subRace == "Halfling Robusto"){
+                    // $('#constitution').val(constitution + 1);
+                    calcConstitution +=  1;
+                }else if(subRace == "Gnomo Das Rochas"){
+                    // $('#constitution').val(constitution + 1);
+                    calcConstitution += 1;
+                }else if(subRace == "Alto Elfo"){
+                    // $('#intelligence').val(intelligence + 1);
+                    calcIntelligence += 1;
+                }else if(subRace == "Anão Da Colina"){
+                    // $('#sapience').val(sapience + 1);
+                    calcSapience += 1;
+                }else if(subRace == "Elfo Da Floresta"){
+                    // $('#sapience').val(sapience + 1);
+                    calcSapience += 1;
+                }else if(race == "Meio-Elfo"){
+                    // $('#charisma').val(charisma + 2);
+                    calcCharisma += 2;
+                }else if(subRace == "Drow"){
+                    // $('#charisma').val(charisma + 1);
+                    calcCharisma += 1;
+                }else if(subRace == "Pés-Leves"){
+                    // $('#charisma').val(charisma + 1);
+                    calcCharisma += 1;
+                }
             }
+
+            $('#char_force').text(calcForce == 0 ? force : calcForce);
+            $('#char_skill').text(calcSkill == 0 ? skill : calcSkill);
+            $('#char_constitution').text(calcConstitution == 0 ? constitution : calcConstitution);
+            $('#char_sapience').text(calcSapience == 0 ? sapience : calcSapience);
+            $('#char_charisma').text(calcCharisma == 0 ? charisma : calcCharisma);
+            $('#char_intelligence').text(calcIntelligence == 0 ? intelligence : calcIntelligence);
         }
 
         function mountCard()
@@ -276,19 +319,12 @@
             $('#char_mp').text(mp+'/'+mp);
             $('#char_ca').text(ca);
 
-            let force = parseInt($('#force').val());
-            let skill = parseInt($('#skill').val());
-            let constitution = parseInt($('#constitution').val());
-            let sapience = parseInt($('#sapience').val());
-            let charisma = parseInt($('#charisma').val());
-            let intelligence = parseInt($('#intelligence').val());
-
-            $('#char_force').text(force);
-            $('#char_skill').text(skill);
-            $('#char_constitution').text(constitution);
-            $('#char_sapience').text(sapience);
-            $('#char_charisma').text(charisma);
-            $('#char_intelligence').text(intelligence);
+            // $('#char_force').text(calcForce);
+            // $('#char_skill').text(calcSkill);
+            // $('#char_constitution').text(calcConstitution);
+            // $('#char_sapience').text(calcSapience);
+            // $('#char_charisma').text(calcCharisma);
+            // $('#char_intelligence').text(calcIntelligence);
         }
 
         // $("#smartwizard").on("leaveStep", function(e, anchorObject, stepNumber, stepDirection) {
