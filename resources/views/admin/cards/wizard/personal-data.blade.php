@@ -1,4 +1,4 @@
-<form action="" method="POST" data-toggle="validator">
+<form method="POST" data-toggle="validator" enctype="multipart/form-data" id="myForm">
     @csrf
     <div class="row">
         <div class="col-sm-4 col-sm-offset-4">

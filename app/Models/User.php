@@ -47,6 +47,6 @@ class User extends Authenticatable
 
     public function cards()
     {
-        return $this->morphMany(Card::class, 'model');
+        return $this->morphMany(Card::class, 'cardeable', 'model_type', 'model_id');
     }
 }

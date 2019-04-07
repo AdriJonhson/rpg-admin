@@ -9,14 +9,18 @@ class Card extends Model
 {
     protected $table = 'cards';
 
-    protected $fillable = [
+    protected $guarded = [
 
     ];
-
 
     public function player()
     {
         return $this->morphOne(Player::class, 'playerable');
+    }
+
+    public function cardeable()
+    {
+        return $this->morphTo('cardeable', 'model_type', 'model_id');
     }
 
     public function avatar()

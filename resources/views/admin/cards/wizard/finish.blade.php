@@ -21,6 +21,7 @@
         <ul class="list-group list-group-unbordered">
             <li class="list-group-item">
                 <b>Pontos de Vida</b> <a class="pull-right" id="char_hp">20/20</a>
+                <input type="hidden" name="hp" id="hp">
             </li>
             <li class="list-group-item">
                 <b>Pontos de Mana</b> <a class="pull-right" id="char_mp">20/20</a>
@@ -85,7 +86,7 @@
             </table>
         </div>
 
-        <a href="#" class="btn btn-primary btn-block"><b>Finalizar</b></a>
+        <button type="button" id="btnFinish" class="btn btn-primary btn-block"><b>Finalizar</b></button>
     </div>
     <!-- /.box-body -->
 </div>

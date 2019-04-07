@@ -177,6 +177,7 @@
             life += parseInt(ca);
 
             $('#char_hp').text(life+'/'+life);
+            $('#hp').val(life);
         }
 
         function setAttributesRace(race, subRace)
@@ -384,6 +385,56 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
+
+        $('#btnFinish').on('click', function (e) {
+            e.preventDefault();
+            let urlSubmitCard = "{!! route('card.store', $rpg->id) !!}";
+
+            //Personal data
+            let name = $('#name').val();
+            let race = $('#race').val();
+            let sub_race = $('#sub-race').val();
+            let classPlayer = $('#class').val();
+            let personalidade = $('#personalidade').val();
+
+            //attributes
+            let force = parseInt($('#force').val());
+            let skill = parseInt($('#skill').val());
+            let constitution = parseInt($('#constitution').val());
+            let sapience = parseInt($('#sapience').val());
+            let charisma = parseInt($('#charisma').val());
+            let intelligence = parseInt($('#intelligence').val());
+
+            //status
+            let mp = $('#mp').val();
+            let ca = $('#ca').val();
+            let hp = $('#hp').val();
+
+            let formData = new FormData;
+
+            formData.append('name', name);
+            formData.append('race', race);
+            formData.append('sub_race', sub_race);
+            formData.append('class', classPlayer);
+            formData.append('personalidade', personalidade);
+            formData.append('force', force);
+            formData.append('skill', skill);
+            formData.append('constitution', constitution);
+            formData.append('sapience', sapience);
+            formData.append('charisma', charisma);
+            formData.append('intelligence', intelligence);
+            formData.append('mp', mp);
+            formData.append('ca', ca);
+            formData.append('hp', hp);
+
+            formData.append("perfil", document.getElementById('perfil').files[0]);
+
+            axios.post(urlSubmitCard, formData).then(response => {
+                console.log(response);
+            }).catch(error => {
+                console.log(error);
+            });
+        });
 
         // $("#smartwizard").on("leaveStep", function(e, anchorObject, stepNumber, stepDirection) {
         //     var elmForm = $("#form-step-" + stepNumber);

@@ -32,14 +32,13 @@ Route::group(['middleware' => 'auth'], function() use($c){
         Route::put('/edit/{rpg}', $c->rpgController.'@update')->name('rpg.update');
         Route::delete('/delete', $c->rpgController.'@delete')->name('rpg.delete');
         Route::post('{rpg}/add-player', $c->rpgController.'@addPlayer')->name('rpg.add.player');
-        
-        Route::get('/{rpg}', $c->rpgController.'@startAdventure')->middleware('verify_card')->name('rpg.start');
     });
 
     Route::get('card/{rpg}/create', $c->cardController.'@create')->name('card.create');
+    Route::post('card/{rpg}/create', $c->cardController.'@store')->name('card.store');
 
-    Route::group(['prefix' => 'card', 'middleware' => 'verify_card'], function() use($c){
-
+    Route::group(['middleware' => 'verify_card'], function() use($c){
+        Route::get('/rpgs/{rpg}', $c->rpgController.'@startAdventure')->middleware('verify_card')->name('rpg.start');
     });
 
 });
