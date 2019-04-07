@@ -83,6 +83,6 @@ class RpgController extends Controller
 
     public function startAdventure(Request $request, Rpg $rpg)
     {
-        dd($rpg);
+        return view('admin.rpgs.start', compact('rpg'));
     }
 }

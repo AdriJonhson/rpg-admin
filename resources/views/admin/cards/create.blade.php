@@ -438,7 +438,7 @@
             formData.append("perfil", document.getElementById('perfil').files[0]);
 
             axios.post(urlSubmitCard, formData).then(response => {
-                let urlGo = "{!! route('rpg.start', $rpg->id) !!}";
+                let urlGo = "{!! route('rpg.start', $rpg->slug) !!}";
                 window.location.href = urlGo;
             }).catch(error => {
                 let urlBack = "{!! route('rpg.index') !!}";
