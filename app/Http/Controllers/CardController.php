@@ -7,6 +7,7 @@ use App\Models\Rpg;
 use App\Models\Skill;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Session;
 
 class CardController extends Controller
 {
@@ -23,6 +24,13 @@ class CardController extends Controller
     public function store(Request $request, Rpg $rpg)
     {
         $user = $request->user();
+
+        $verifyCardExist = $user->cards()->where('rpg_id', $rpg->id)->get();
+
+        if(count($verifyCardExist) > 0){
+            $request->session()->flash("Você já possui uma ficha criada nesse RPG!");
+            return response()->json(['message' => "Você já possui uma ficha criada nesse RPG!"], 400);
+        }
 
         $attributes = $this->calculateAttributesByClassAndSubClass($request);
 

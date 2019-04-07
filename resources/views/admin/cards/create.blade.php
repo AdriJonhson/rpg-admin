@@ -9,6 +9,7 @@
             </h4>
         </div>
         <div class="box-body">
+
             <div id="smartwizard" class="sw-main sw-theme-arrows">
                 <ul>
                     <li><a href="#step-1">Criaçao do personagem<br/>
@@ -40,6 +41,10 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="overlay" id="loading" hidden>
+            <i class="fa fa-refresh fa-spin"></i>
         </div>
     </div>
 
@@ -388,6 +393,9 @@
 
         $('#btnFinish').on('click', function (e) {
             e.preventDefault();
+            //active loading
+            $('#loading').show();
+
             let urlSubmitCard = "{!! route('card.store', $rpg->id) !!}";
 
             //Personal data
@@ -430,25 +438,27 @@
             formData.append("perfil", document.getElementById('perfil').files[0]);
 
             axios.post(urlSubmitCard, formData).then(response => {
-                console.log(response);
+                let urlGo = "{!! route('rpg.start', $rpg->id) !!}";
+                window.location.href = urlGo;
             }).catch(error => {
-                console.log(error);
+                let urlBack = "{!! route('rpg.index') !!}";
+                window.location.href = urlBack;
             });
         });
 
-        // $("#smartwizard").on("leaveStep", function(e, anchorObject, stepNumber, stepDirection) {
-        //     var elmForm = $("#form-step-" + stepNumber);
-        //
-        //     if(stepDirection === 'forward' && elmForm){
-        //         elmForm.validator('validate');
-        //         var elmErr = elmForm.children('.has-error');
-        //         if(elmErr && elmErr.length > 0){
-        //             // Form validation failed
-        //             return false;
-        //         }
-        //     }
-        //     return true;
-        // });
+        $("#smartwizard").on("leaveStep", function(e, anchorObject, stepNumber, stepDirection) {
+            var elmForm = $("#form-step-" + stepNumber);
+
+            if(stepDirection === 'forward' && elmForm){
+                elmForm.validator('validate');
+                var elmErr = elmForm.children('.has-error');
+                if(elmErr && elmErr.length > 0){
+                    // Form validation failed
+                    return false;
+                }
+            }
+            return true;
+        });
     </script>
 @endsection
 
