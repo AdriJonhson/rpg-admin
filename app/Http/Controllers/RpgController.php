@@ -83,6 +83,12 @@ class RpgController extends Controller
 
     public function startAdventure(Request $request, Rpg $rpg)
     {
-        return view('admin.rpgs.start', compact('rpg'));
+        config(['adminlte.collapse_sidebar' => true]);
+
+        $cards =  $rpg->cards;
+
+        $controlRpg = $request->user()->can('control_rpg');
+
+        return view('admin.rpgs.start', compact('rpg', 'cards', 'controlRpg'));
     }
 }

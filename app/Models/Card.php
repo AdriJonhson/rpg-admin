@@ -10,8 +10,11 @@ class Card extends Model
     protected $table = 'cards';
 
     protected $guarded = [
-
     ];
+
+    const STATUS_LIVE = 'live';
+    const STATUS_DIE = 'die';
+    const STATUS_NEGATIVE = 'negative';
 
     public function player()
     {

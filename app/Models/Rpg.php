@@ -18,6 +18,12 @@ class Rpg extends Model
     }
 
 
+    public function cards()
+    {
+        return $this->hasMany(Card::class);
+    }
+
+
     /**
      * Get the options for generating the slug.
      */

@@ -41,9 +41,11 @@ class CardController extends Controller
             'name'          => $request->name,
             'class'         => $request->class,
             'race'          => $request->race,
-            'sub_race'      => $request->sub_race,
+            'sub_race'      => $request->sub_race != null ? $request->sub_race : null,
             'health_point'  => $request->hp,
             'mana_point'    => $request->mp,
+            'current_life'    => $request->hp,
+            'current_mana'    => $request->mp,
             'constitution'  => $request->constitution,
             'description'   => $request->personalidade,
             'rpg_id'        => $rpg->id,
@@ -249,7 +251,7 @@ class CardController extends Controller
             $upload = $request->perfil->storeAs('medias', $filename);
 
             if($upload){
-                return "/storage/app/public/medias/{$filename}";
+                return "/storage/medias/{$filename}";
             }
 
             return null;
