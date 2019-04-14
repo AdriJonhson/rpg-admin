@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="07c63151-9cb0-43c8-b18b-edefd5533d04" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/rpgs/start.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/rpgs/start.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/cards/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/cards/create.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,11 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/rpgs/start.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="243" column="53" selection-start-line="243" selection-start-column="53" selection-end-line="243" selection-end-column="53" />
+            <state relative-caret-position="271">
+              <caret line="239" lean-forward="true" selection-start-line="239" selection-end-line="239" />
               <folding>
                 <element signature="e#3801#5512#0#HTML" />
               </folding>
@@ -54,7 +54,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/RpgController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="644">
+            <state relative-caret-position="386">
               <caret line="91" column="75" selection-start-line="91" selection-start-column="75" selection-end-line="91" selection-end-column="75" />
               <folding>
                 <element signature="e#287#1018#0#PHP" />
@@ -70,10 +70,44 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CardController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="248">
+              <caret line="43" column="58" selection-start-line="43" selection-start-column="58" selection-end-line="43" selection-end-column="58" />
+              <folding>
+                <element signature="e#254#526#0#PHP" />
+                <element signature="e#709#940#0#PHP" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/cards/create.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="172">
+              <caret line="191" lean-forward="true" selection-start-line="191" selection-end-line="191" />
+              <folding>
+                <element signature="e#14050#14360#0#HTML" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/cards/wizard/attributes.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="230">
+              <caret line="40" column="88" selection-start-line="40" selection-start-column="76" selection-end-line="40" selection-end-column="88" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Models/Card.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
+            <state relative-caret-position="330">
               <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="37" />
               <folding>
                 <element signature="e#30#69#0#PHP" expanded="true" />
@@ -97,6 +131,8 @@
       <find>sub</find>
       <find>withWarning</find>
       <find>withInfo</find>
+      <find>#hp</find>
+      <find>ca</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -147,7 +183,6 @@
         <option value="$PROJECT_DIR$/app/Http/Middleware/VerifyCardExists.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/vendor/adminlte/page.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/cards/create.blade.php" />
         <option value="$PROJECT_DIR$/app/Models/Rpg.php" />
         <option value="$PROJECT_DIR$/config/filesystems.php" />
         <option value="$PROJECT_DIR$/.env" />
@@ -155,10 +190,11 @@
         <option value="$PROJECT_DIR$/database/migrations/2019_04_14_014026_add_column_level_in_cards_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/RpgController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_04_14_021722_add_new_columns_in_cards_table.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/CardController.php" />
         <option value="$PROJECT_DIR$/app/Models/Card.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/resources/views/admin/rpgs/start.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/cards/create.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/CardController.php" />
       </list>
     </option>
   </component>
@@ -290,6 +326,41 @@
               <item name="rpg-admin" type="b2602c69:ProjectViewProjectNode" />
               <item name="rpg-admin" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="rpg-admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rpg-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rpg-admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rpg-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rpg-admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rpg-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rpg-admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rpg-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="cards" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rpg-admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rpg-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="cards" type="462c0819:PsiDirectoryNode" />
+              <item name="wizard" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -380,12 +451,12 @@
       <workItem from="1554654089404" duration="5708000" />
       <workItem from="1554659886865" duration="7142000" />
       <workItem from="1555200141546" duration="11055000" />
-      <workItem from="1555254352919" duration="3097000" />
+      <workItem from="1555254352919" duration="5817000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="138642000" />
+    <option name="totallyTimeSpent" value="141362000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -414,7 +485,7 @@
       <window_info anchor="right" id="Database" order="3" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20801815" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20801815" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="npm" order="3" side_tool="true" />
@@ -608,20 +679,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/cards/wizard/status.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="78" selection-start-line="7" selection-start-column="78" selection-end-line="7" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/cards/wizard/attributes.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="52" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Providers/RouteServiceProvider.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="32">
@@ -650,13 +707,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-106">
           <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/cards/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="722">
-          <caret line="447" lean-forward="true" selection-start-line="447" selection-end-line="447" />
         </state>
       </provider>
     </entry>
@@ -734,57 +784,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CardController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="46" column="45" selection-start-line="46" selection-start-column="45" selection-end-line="46" selection-end-column="45" />
-          <folding>
-            <element signature="e#254#526#0#PHP" />
-            <element signature="e#709#940#0#PHP" />
-            <element signature="e#1702#1817#0#PHP" />
-            <element signature="e#1937#5190#0#PHP" />
-            <element signature="e#2572#3666#0#PHP" />
-            <element signature="e#2873#3666#0#PHP" />
-            <element signature="e#2995#3666#0#PHP" />
-            <element signature="e#3124#3666#0#PHP" />
-            <element signature="e#3198#3666#0#PHP" />
-            <element signature="e#3276#3666#0#PHP" />
-            <element signature="e#3364#3666#0#PHP" />
-            <element signature="e#3453#3666#0#PHP" />
-            <element signature="e#3588#3666#0#PHP" />
-            <element signature="e#3676#4606#0#PHP" />
-            <element signature="e#3710#4596#0#PHP" />
-            <element signature="e#3799#4596#0#PHP" />
-            <element signature="e#3890#4596#0#PHP" />
-            <element signature="e#3987#4596#0#PHP" />
-            <element signature="e#4083#4596#0#PHP" />
-            <element signature="e#4172#4596#0#PHP" />
-            <element signature="e#4262#4596#0#PHP" />
-            <element signature="e#4354#4596#0#PHP" />
-            <element signature="e#4436#4596#0#PHP" />
-            <element signature="e#4516#4596#0#PHP" />
-            <element signature="e#4630#5127#0#PHP" />
-            <element signature="e#5196#5529#0#PHP" />
-            <element signature="e#5280#5500#0#PHP" />
-            <element signature="e#5359#5489#0#PHP" />
-            <element signature="e#5535#6532#0#PHP" />
-            <element signature="e#5622#6500#0#PHP" />
-            <element signature="e#5696#6500#0#PHP" />
-            <element signature="e#5771#6500#0#PHP" />
-            <element signature="e#5846#6500#0#PHP" />
-            <element signature="e#5921#6500#0#PHP" />
-            <element signature="e#5996#6500#0#PHP" />
-            <element signature="e#6071#6500#0#PHP" />
-            <element signature="e#6146#6500#0#PHP" />
-            <element signature="e#6221#6500#0#PHP" />
-            <element signature="e#6296#6500#0#PHP" />
-            <element signature="e#6371#6500#0#PHP" />
-            <element signature="e#6446#6500#0#PHP" />
-            <element signature="e#6538#7048#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Rpg.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
@@ -804,8 +803,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/rpgs/start.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="243" column="53" selection-start-line="243" selection-start-column="53" selection-end-line="243" selection-end-column="53" />
+        <state relative-caret-position="271">
+          <caret line="239" lean-forward="true" selection-start-line="239" selection-end-line="239" />
           <folding>
             <element signature="e#3801#5512#0#HTML" />
           </folding>
@@ -819,9 +818,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Card.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="37" />
+          <folding>
+            <element signature="e#30#69#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/RpgController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
+        <state relative-caret-position="386">
           <caret line="91" column="75" selection-start-line="91" selection-start-column="75" selection-end-line="91" selection-end-column="75" />
           <folding>
             <element signature="e#287#1018#0#PHP" />
@@ -836,12 +845,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Card.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/cards/wizard/status.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="37" />
+        <state relative-caret-position="105">
+          <caret line="7" column="78" selection-start-line="7" selection-start-column="78" selection-end-line="7" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/cards/wizard/attributes.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="40" column="88" selection-start-line="40" selection-start-column="76" selection-end-line="40" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/cards/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="191" lean-forward="true" selection-start-line="191" selection-end-line="191" />
           <folding>
-            <element signature="e#30#69#0#PHP" expanded="true" />
+            <element signature="e#14050#14360#0#HTML" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CardController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="43" column="58" selection-start-line="43" selection-start-column="58" selection-end-line="43" selection-end-column="58" />
+          <folding>
+            <element signature="e#254#526#0#PHP" />
+            <element signature="e#709#940#0#PHP" />
           </folding>
         </state>
       </provider>

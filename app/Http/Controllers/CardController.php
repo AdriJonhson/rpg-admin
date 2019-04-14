@@ -41,7 +41,7 @@ class CardController extends Controller
             'name'          => $request->name,
             'class'         => $request->class,
             'race'          => $request->race,
-            'sub_race'      => $request->sub_race != null ? $request->sub_race : null,
+            'sub_race'      => $request->sub_race != "null" ? $request->sub_race : null,
             'health_point'  => $request->hp,
             'mana_point'    => $request->mp,
             'current_life'    => $request->hp,

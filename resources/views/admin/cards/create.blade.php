@@ -163,8 +163,9 @@
         function calculateLife()
         {
             let classPlayer = $('#class').val();
-            let ca = $('#ca').val();
+            let constitution = parseInt($('#constitution').val());
             let life = 0;
+            let modify = 0;
 
             if(classPlayer == "Bardo" || classPlayer == "Clérigo"
                 || classPlayer == "Bruxo" || classPlayer == "Druida" || classPlayer == "Ladino"
@@ -179,7 +180,17 @@
                 life = 10;
             }
 
-            life += parseInt(ca);
+            if(constitution === 8){
+                modify = -1
+            }else if(constitution === 10){
+                modify = 0
+            }else if(constitution === 12 || constitution === 13){
+                modify = 1
+            }else if(constitution === 14 || constitution === 15){
+                modify = 2
+            }
+
+            life += parseInt(modify);
 
             $('#char_hp').text(life+'/'+life);
             $('#hp').val(life);
