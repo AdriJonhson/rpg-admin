@@ -18,6 +18,7 @@
         "spatie/laravel-medialibrary": "^7.0.0",
         "spatie/laravel-permission": "^2.32",
         "spatie/laravel-sluggable": "^2.1",
+        "swooletw/laravel-swoole": "v2.6.5.4",
         "yajra/laravel-datatables-oracle": "~8.0"
     },
     "require-dev": {
