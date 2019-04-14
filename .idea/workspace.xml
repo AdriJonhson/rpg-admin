@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="07c63151-9cb0-43c8-b18b-edefd5533d04" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/setup-laravel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/setup-laravel.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/rpgs/start.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/rpgs/start.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,20 +29,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/rpgs/start.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="232" selection-start-line="232" selection-end-line="233" />
+            <state relative-caret-position="253">
+              <caret line="194" column="36" lean-forward="true" selection-start-line="194" selection-start-column="36" selection-end-line="194" selection-end-column="36" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/index.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/cards/wizard/attributes.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="368">
+              <caret line="91" column="69" selection-start-line="91" selection-start-column="57" selection-end-line="91" selection-end-column="69" />
             </state>
           </provider>
         </entry>
@@ -126,11 +121,11 @@
         <option value="$PROJECT_DIR$/database/migrations/2019_04_14_021722_add_new_columns_in_cards_table.php" />
         <option value="$PROJECT_DIR$/app/Models/Card.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/resources/views/admin/rpgs/start.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/cards/create.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CardController.php" />
         <option value="$PROJECT_DIR$/public/index.php" />
         <option value="$PROJECT_DIR$/config/app.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/rpgs/start.blade.php" />
       </list>
     </option>
   </component>
@@ -268,7 +263,37 @@
             <path>
               <item name="rpg-admin" type="b2602c69:ProjectViewProjectNode" />
               <item name="rpg-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rpg-admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rpg-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rpg-admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rpg-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rpg-admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rpg-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="cards" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rpg-admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rpg-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="cards" type="462c0819:PsiDirectoryNode" />
+              <item name="wizard" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -287,16 +312,16 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/css" />
+      <recent name="$PROJECT_DIR$/public/js" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/admin/cards/wizard" />
       <recent name="$PROJECT_DIR$/public/css" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers" />
       <recent name="C:\Users\Adri\Documents\workspace\laravel\setup-laravel\app\Models" />
       <recent name="C:\Users\Adri\Documents\workspace\laravel\setup-laravel\resources\views\admin" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/css" />
-      <recent name="$PROJECT_DIR$/public/js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -360,18 +385,18 @@
       <workItem from="1554659886865" duration="7142000" />
       <workItem from="1555200141546" duration="11055000" />
       <workItem from="1555254352919" duration="6421000" />
-      <workItem from="1555275511731" duration="2000000" />
+      <workItem from="1555275511731" duration="4174000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="143966000" />
+    <option name="totallyTimeSpent" value="146140000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20801815" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.20801815" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="npm" order="3" side_tool="true" />
@@ -696,13 +721,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/cards/wizard/attributes.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="40" column="88" selection-start-line="40" selection-start-column="76" selection-end-line="40" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CardController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="248">
@@ -748,13 +766,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/rpgs/start.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="232" selection-start-line="232" selection-end-line="233" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/swoole_websocket.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-189">
@@ -778,8 +789,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="138">
+          <caret line="11" selection-start-line="11" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/cards/wizard/attributes.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="91" column="69" selection-start-line="91" selection-start-column="57" selection-end-line="91" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/rpgs/start.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="194" column="36" lean-forward="true" selection-start-line="194" selection-start-column="36" selection-end-line="194" selection-end-column="36" />
         </state>
       </provider>
     </entry>
