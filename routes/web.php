@@ -39,6 +39,7 @@ Route::group(['middleware' => 'auth'], function() use($c){
 
     Route::group(['middleware' => 'verify_card'], function() use($c){
         Route::get('/rpgs/{rpg}', $c->rpgController.'@startAdventure')->name('rpg.start');
+        Route::get('/get-card/{card}', $c->cardController.'@show')->name('card.get.info');
     });
 
 });

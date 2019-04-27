@@ -259,4 +259,23 @@ class CardController extends Controller
 
         return null;
     }
+
+    public function show(Request $request, Card $card)
+    {
+        $user = $card->cardeable;
+
+        $response = [
+            'player_name'   => $user->name,
+            'char_name'     => $card->name,
+            'class'         => $card->class,
+            'race'          => $card->race,
+            'sub_race'      => $card->sub_race,
+            'level'         => $card->level,
+            'experience'    => $card->experience,
+            'description'   => $card->description,
+            'attributes'    => json_decode($card->attributes),
+        ];
+
+        return response()->json($response);
+    }
 }

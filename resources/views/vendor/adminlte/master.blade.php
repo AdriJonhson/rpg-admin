@@ -69,7 +69,7 @@
 
 <script src="{!! asset('js/jquery.smartWizard.min.js') !!}"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.6/dist/loadingoverlay.min.js"></script>
 @yield('adminlte_js')
 
 </body>

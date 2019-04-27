@@ -158,26 +158,31 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Jogador X</h4>
+                    <div class="modal-title">
+                        <h4 id="player_name">Jogador X </h4>
+                    </div>
                 </div>
                 <div class="modal-body">
                     <div class="nav-tabs-custom">
                         <ul class="nav nav-tabs">
-                            <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="false">Informações</a></li>
+                            <li class="active">
+                                <a href="#tab_1" data-toggle="tab">Informações</a>
+                            </li>
 
-                            <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">Atributos</a></li>
+                            <li class="">
+                                <a href="#tab_2" data-toggle="tab">Atributos</a>
+                            </li>
 
                             <li class="disabled" {!! $controlRpg ? 'style="display: block"' : 'style="display: none"' !!} id="inventory">
-                                <a href="#tab_3" data-toggle="tab" aria-expanded="true">Inventário</a></li>
+                                <a href="#tab_3" data-toggle="tab">Inventário</a>
+                            </li>
 
                             <li class="disabled" {!! $controlRpg ? 'style="display: block"' : 'style="display: none"' !!} id="spells">
-                                <a href="#tab_4" data-toggle="tab" aria-expanded="true">Magias</a></li>
+                                <a href="#tab_4" data-toggle="tab">Magias</a>
+                            </li>
                         </ul>
                         <div class="tab-content">
-                            <div class="tab-pane" id="tab_1">
-                                <p>
-                                    <strong>Jogador: </strong> <span id="player_name">Teste</span>
-                                </p>
+                            <div class="tab-pane active" id="tab_1">
                                 <p>
                                     <strong>Nome: </strong> <span id="char_name">Teste</span>
                                 </p>
@@ -189,6 +194,12 @@
                                 </p>
                                 <p>
                                     <strong>Classe: </strong> <span id="class">Teste</span>
+                                </p>
+                                <p>
+                                    <strong>Nível: </strong> <span id="level">00</span>
+                                </p>
+                                <p>
+                                    <strong>Experiência: </strong> <span id="experience">00</span>
                                 </p>
                                 <p>
                                     <strong>Descrição: </strong> <span id="description">Teste</span>
@@ -239,12 +250,12 @@
                                 </table>
                             </div>
                             <!-- /.tab-pane -->
-                            <div class="tab-pane active" id="tab_3">
+                            <div class="tab-pane" id="tab_3">
 
                             </div>
                             <!-- /.tab-pane -->
                             <!-- /.tab-pane -->
-                            <div class="tab-pane active" id="tab_4">
+                            <div class="tab-pane" id="tab_4">
 
                             </div>
                             <!-- /.tab-pane -->
@@ -266,13 +277,14 @@
 
         showCardDetails();
 
-
-
         function showCardDetails()
         {
             $('.btnShowDetails').on('click', function () {
+                $.LoadingOverlay("show");
                 let cardId      = $(this).data('cardid');
                 let playerId    = $(this).data('player');
+
+                loadCardData(cardId);
 
                 let userId = '{!! auth()->user()->id !!}';
 
@@ -286,9 +298,32 @@
                     $('#spells').css('display', 'none');
                 }
 
-               $('#modal-details').modal('show');
+               // $('#modal-details').modal('show');
             });
         }
 
+        function loadCardData(cardId)
+        {
+            let url = '{!! route('card.get.info', '_id') !!}'.replace('_id', cardId);
+            let data = null;
+
+            axios.get(url).then(function(response){
+                data = response.data;
+            }).then(function(response){
+                $('#player_name').text(data.player_name);
+                $('#char_name').text(data.char_name);
+                $('#race').text(data.race);
+                $('#sub-race').text(data.char_name);
+                $('#class').text(data.class);
+                $('#level').text(data.level);
+                $('#experience').text(data.experience);
+                $('#description').text(data.description);
+            }).finally(function(){
+                $.LoadingOverlay("hide");
+                $('#modal-details').modal('show');
+                // setTimeout(function(){
+                // }, 3000);
+            });
+        }
     </script>
 @endsection
