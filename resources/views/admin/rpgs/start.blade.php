@@ -309,21 +309,49 @@
 
             axios.get(url).then(function(response){
                 data = response.data;
-            }).then(function(response){
+            }).then(function(){
                 $('#player_name').text(data.player_name);
                 $('#char_name').text(data.char_name);
                 $('#race').text(data.race);
-                $('#sub-race').text(data.char_name);
+                $('#sub_race').text(data.sub_race ? data.sub_race : 'Não possui sub-raça');
                 $('#class').text(data.class);
                 $('#level').text(data.level);
                 $('#experience').text(data.experience);
                 $('#description').text(data.description);
+
+                $('#force_value').text(data.attributes['force'].value);
+                $('#force_modify').text( checkModifier(data.attributes['force'].modifier));
+
+                $('#skill_value').text(data.attributes['skill'].value);
+                $('#skill_modify').text(checkModifier(data.attributes['skill'].modifier));
+
+                $('#constitution_value').text(data.attributes['constitution'].value);
+                $('#constitution_modify').text(checkModifier(data.attributes['constitution'].modifier));
+
+                $('#charisma_value').text(data.attributes['charisma'].value);
+                $('#charisma_modify').text(checkModifier(data.attributes['charisma'].modifier));
+
+                $('#sapience_value').text(data.attributes['sapience'].value);
+                $('#sapience_modify').text(checkModifier(data.attributes['sapience'].modifier));
+
+                $('#intelligence_value').text(data.attributes['intelligence'].value);
+                $('#intelligence_modify').text(checkModifier(data.attributes['intelligence'].modifier));
+
             }).finally(function(){
                 $.LoadingOverlay("hide");
                 $('#modal-details').modal('show');
-                // setTimeout(function(){
-                // }, 3000);
             });
+        }
+
+        function checkModifier(value)
+        {
+            value = value.toString();
+
+            if(value.indexOf("-") == -1){
+                return `+ ${value}`;
+            }
+
+            return value.replace('-', '- ');
         }
     </script>
 @endsection

@@ -3,15 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="07c63151-9cb0-43c8-b18b-edefd5533d04" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/rpgs/start.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/rpgs/start.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/adminlte/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/adminlte/page.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,11 +33,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/rpgs/start.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="318" column="31" selection-start-line="318" selection-start-column="31" selection-end-line="318" selection-end-column="31" />
+            <state relative-caret-position="340">
+              <caret line="349" column="35" selection-start-line="349" selection-start-column="35" selection-end-line="349" selection-end-column="35" />
               <folding>
                 <element signature="e#4369#6460#0#HTML" />
-                <element signature="e#12674#13376#0#HTML" />
               </folding>
             </state>
           </provider>
@@ -153,6 +144,8 @@
       <find>ca</find>
       <find>alert(</find>
       <find>alert</find>
+      <find>charisma_value</find>
+      <find>skill_valuel</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -216,8 +209,8 @@
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Models/Card.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CardController.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/rpgs/start.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/vendor/adminlte/master.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/rpgs/start.blade.php" />
       </list>
     </option>
   </component>
@@ -480,12 +473,12 @@
       <workItem from="1555638709917" duration="34000" />
       <workItem from="1555978789958" duration="887000" />
       <workItem from="1556371123616" duration="1491000" />
-      <workItem from="1556394707288" duration="4329000" />
+      <workItem from="1556394707288" duration="7377000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="154090000" />
+    <option name="totallyTimeSpent" value="157138000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -938,11 +931,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/rpgs/start.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="318" column="31" selection-start-line="318" selection-start-column="31" selection-end-line="318" selection-end-column="31" />
+        <state relative-caret-position="340">
+          <caret line="349" column="35" selection-start-line="349" selection-start-column="35" selection-end-line="349" selection-end-column="35" />
           <folding>
             <element signature="e#4369#6460#0#HTML" />
-            <element signature="e#12674#13376#0#HTML" />
           </folding>
         </state>
       </provider>
