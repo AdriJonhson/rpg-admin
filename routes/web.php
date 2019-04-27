@@ -36,10 +36,10 @@ Route::group(['middleware' => 'auth'], function() use($c){
 
     Route::get('card/{rpg}/create', $c->cardController.'@create')->name('card.create');
     Route::post('card/{rpg}/create', $c->cardController.'@store')->name('card.store');
+    Route::get('/get-card/{card}', $c->cardController.'@show')->name('card.get.info');
 
     Route::group(['middleware' => 'verify_card'], function() use($c){
         Route::get('/rpgs/{rpg}', $c->rpgController.'@startAdventure')->name('rpg.start');
-        Route::get('/get-card/{card}', $c->cardController.'@show')->name('card.get.info');
     });
 
 });
