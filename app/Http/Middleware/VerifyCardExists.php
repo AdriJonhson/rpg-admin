@@ -16,15 +16,17 @@ class VerifyCardExists
      */
     public function handle($request, Closure $next)
     {
-        if(!$request->user()->hasRole(['master', 'super_admin', 'admin'])){
 
+        $user = $request->user();
+
+        if(!$user->myRpgs()->where('slug', $request->route('rpg')->slug)->first()){
             $rpg = $request->route('rpg');
-            $user = $request->user();
             $verifyExistsCard = $user->cards()->where('rpg_id', $rpg->id)->get();
 
             if(count($verifyExistsCard) <= 0){
                 return redirect()->route('card.create', $request->route('rpg')->slug);
             }
+
         }
 
         return $next($request);
