@@ -26,6 +26,8 @@ Route::post('/register', 'Admin\\Auth\\RegisterController@register')->name('admi
 
 Route::group(['middleware' => 'auth'], function() use($c){
 
+    Route::get('/my-rpgs', $c->rpgController.'@getMyRpgs')->name('rpg.my.rpgs');
+
     Route::group(['prefix'  => 'rpgs'], function() use($c){
         Route::get('/', $c->rpgController.'@index')->name('rpg.index');
         Route::post('/', $c->rpgController.'@store')->name('rpg.store');

@@ -16,7 +16,7 @@ return [
     */
 
     // 'default' => env('DB_CONNECTION', 'mysql'),
-    'default' => env('DB_CONNECTION', 'pgsql'),
+    'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -60,17 +60,16 @@ return [
         ],
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => key_exists("host", $DATABASE_URL) ? $DATABASE_URL["host"] : '',
-            'port' => key_exists("port", $DATABASE_URL) ? $DATABASE_URL["port"] : '',
-            'database' => key_exists("path", $DATABASE_URL) ? ltrim($DATABASE_URL["path"], "/") : '',
-            'username' => key_exists("user", $DATABASE_URL) ? $DATABASE_URL["user"] : '',
-            'password' => key_exists("pass", $DATABASE_URL) ? $DATABASE_URL["pass"] : '',
+            'host' => key_exists("host", $DATABASE_URL) ? $DATABASE_URL["host"] : env('DB_HOST', '127.0.0.1'),
+            'port' => key_exists("port", $DATABASE_URL) ? $DATABASE_URL["port"] : env('DB_PORT', '3306'),
+            'database' => $DATABASE_URL['path'] != "" ? ltrim($DATABASE_URL["path"], "/") : env('DB_DATABASE', 'forge'),
+            'username' => key_exists("user", $DATABASE_URL) ? $DATABASE_URL["user"] : env('DB_USERNAME', 'forge'),
+            'password' => key_exists("pass", $DATABASE_URL) ? $DATABASE_URL["pass"] : env('DB_PASSWORD', ''),
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
             'sslmode' => 'require',
-        ],  
-
+        ],
         'sqlsrv' => [
             'driver' => 'sqlsrv',
             'host' => env('DB_HOST', 'localhost'),

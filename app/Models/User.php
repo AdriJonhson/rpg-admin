@@ -49,4 +49,9 @@ class User extends Authenticatable
     {
         return $this->morphMany(Card::class, 'cardeable', 'model_type', 'model_id');
     }
+
+    public function myRpgs()
+    {
+        return $this->belongsToMany(Rpg::class, 'rpg_users');
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Rpg;
 use App\Models\RpgPlayer;
+use App\Models\RpgUser;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -17,18 +18,14 @@ class RpgController extends Controller
         $vars = [];
 
         if($request->wantsJson()){
+            $user = $request->user();
 
-            if($request->user()->hasRole('player')){
-                $rpgs = new Collection();
+            $rpgs = new Collection();
 
-                $playerRpgs = RpgPlayer::with('rpg')->where('model_id', $request->user()->id)->get();
+            $playerRpgs = RpgPlayer::with('rpg')->where('model_id', $user->id)->get();
 
-                foreach($playerRpgs as $playerRpg){
-                    $rpgs->push($playerRpg->rpg);
-                }
-
-            }else{
-                $rpgs = Rpg::query();
+            foreach($playerRpgs as $playerRpg){
+                $rpgs->push($playerRpg->rpg);
             }
 
             return DataTables::of($rpgs)->make(true);
@@ -44,7 +41,14 @@ class RpgController extends Controller
 
     public function store(Request $request)
     {
+        $user = $request->user();
+
         $rpg = Rpg::create($request->all());
+
+        RpgUser::create([
+            'user_id'   => $user->id,
+            'rpg_id'    => $rpg->id
+        ]);
 
         return redirect()->back()->withSuccess('Aventura criada com sucesso!');
     }
@@ -90,5 +94,18 @@ class RpgController extends Controller
         $controlRpg = $request->user()->can('control_rpg');
 
         return view('admin.rpgs.start', compact('rpg', 'cards', 'controlRpg'));
+    }
+
+    public function getMyRpgs(Request $request)
+    {
+        if($request->wantsJson()){
+            $user = $request->user();
+
+            $rpgs = $user->myRpgs;
+
+            return DataTables::of($rpgs)->make(true);
+        }
+
+        return view('admin.rpgs.my-rpgs');
     }
 }

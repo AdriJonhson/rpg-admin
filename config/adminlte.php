@@ -121,6 +121,11 @@ return [
             'icon'        => 'book',
         ],
         [
+            'text'        => 'Meus RPGS',
+            'url'         => 'my-rpgs',
+            'icon'        => 'book',
+        ],
+        [
             'text'    => 'Menu do Sistema',
             'icon'    => 'desktop',
             'can'         => 'control_system',
