@@ -69,7 +69,13 @@ class RpgController extends Controller
 
     public function addPlayer(Request $request, Rpg $rpg)
     {
-       $addPlayer = $rpg->players()->syncWithoutDetaching($request->player);
+       $user = User::where('email', $request->email)->first();
+
+       if(!$user){
+           return redirect()->back()->withInfo('Jogador não encontrado!');
+       }
+
+       $addPlayer = $rpg->players()->syncWithoutDetaching($user->id);
 
        if(count($addPlayer['attached']) == 0){
            return redirect()->back()->withInfo('O jogador já esta participando dessa aventura!');

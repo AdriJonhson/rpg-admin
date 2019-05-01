@@ -26,7 +26,6 @@ class VerifyCardExists
             if(count($verifyExistsCard) <= 0){
                 return redirect()->route('card.create', $request->route('rpg')->slug);
             }
-
         }
 
         return $next($request);

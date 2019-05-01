@@ -100,14 +100,10 @@
                 <form action="" method="POST" id="form-player">
                     @csrf
                     <div class="modal-body">
-                        <select name="player" id="player" class="form-control" required>
-                            <option value="">Selecione o player que deseja adicionar nessa aventura</option>
-                            {{--@forelse($players as $player)--}}
-                            {{--<option value="{{$player->id}}">{{$player->name}}</option>--}}
-                            {{--@empty--}}
-                            {{--<option value="" disabled selected>Nenhum Player para adicionar nesse RPG</option>--}}
-                            {{--@endforelse--}}
-                        </select>
+                        <div class="form-group">
+                            <label for="email">E-Mail</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="E-Mail do jogador que deseja adicionar">
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Fechar</button>
