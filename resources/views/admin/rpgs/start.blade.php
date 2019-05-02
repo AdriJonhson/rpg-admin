@@ -165,35 +165,35 @@
                 <div class="modal-body">
                     <div class="nav-tabs-custom">
                         <ul class="nav nav-tabs">
-                            <li class="active">
+                            <li class="tab-item active" id="tab_01_link">
                                 <a href="#tab_1" data-toggle="tab">Informações</a>
                             </li>
 
-                            <li class="">
+                            <li class="tab-item">
                                 <a href="#tab_2" data-toggle="tab">Atributos</a>
                             </li>
 
-                            <li class="disabled" {!! $controlRpg ? 'style="display: block"' : 'style="display: none"' !!} id="inventory">
+                            <li class="tab-item disabled" {!! $controlRpg ? 'style="display: block"' : 'style="display: none"' !!} id="inventory">
                                 <a href="#tab_3" data-toggle="tab">Inventário</a>
                             </li>
 
-                            <li class="disabled" {!! $controlRpg ? 'style="display: block"' : 'style="display: none"' !!} id="spells">
+                            <li class="tab-item disabled" {!! $controlRpg ? 'style="display: block"' : 'style="display: none"' !!} id="spells">
                                 <a href="#tab_4" data-toggle="tab">Magias</a>
                             </li>
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" id="tab_1">
                                 <p>
-                                    <strong>Nome: </strong> <span id="char_name">Teste</span>
+                                    <strong>Nome: </strong> <span id="char_name"></span>
                                 </p>
                                 <p>
-                                    <strong>Raça: </strong> <span id="race">Teste</span>
+                                    <strong>Raça: </strong> <span id="race"></span>
                                 </p>
                                 <p>
-                                    <strong>Sub-Raça: </strong> <span id="sub_race"> Teste</span>
+                                    <strong>Sub-Raça: </strong> <span id="sub_race"> </span>
                                 </p>
                                 <p>
-                                    <strong>Classe: </strong> <span id="class">Teste</span>
+                                    <strong>Classe: </strong> <span id="class"></span>
                                 </p>
                                 <p>
                                     <strong>Nível: </strong> <span id="level">00</span>
@@ -202,7 +202,7 @@
                                     <strong>Experiência: </strong> <span id="experience">00</span>
                                 </p>
                                 <p>
-                                    <strong>Descrição: </strong> <span id="description">Teste</span>
+                                    <strong>Descrição: </strong> <span id="description"></span>
                                 </p>
                             </div>
                             <!-- /.tab-pane -->
@@ -353,5 +353,12 @@
 
             return value.replace('-', '- ');
         }
+
+        $('#modal-details').on('hide.bs.modal', function(){
+            $('.tab-item').removeClass('active');
+            $('.tab-pane').removeClass('active');
+            $('#tab_1').addClass('active');
+            $('#tab_01_link').addClass('active');
+        })
     </script>
 @endsection
