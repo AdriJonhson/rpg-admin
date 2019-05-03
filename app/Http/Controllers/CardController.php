@@ -278,4 +278,84 @@ class CardController extends Controller
 
         return response()->json($response);
     }
+
+    public function getEditData(Request $request, Card $card)
+    {
+        $data = [
+            'max_life'      => $card->health_point,
+            'current_life'  => $card->current_life,
+            'max_mana'      => $card->mana_point,
+            'current_mana'  => $card->current_mana
+        ];
+
+        return response()->json(['values' => $data], 200);
+    }
+
+    public function updateEditData(Request $request, Card $card)
+    {
+        $life = (int)$request->life;
+        $mana = (int)$request->mana;
+        $xp = (int)$request->xp;
+
+        if($xp != null && $xp < 0){
+            return response()->json(['message' => 'Valor informado para experiência inválido!'], 411);
+        }
+
+        if($life > 0 || $mana > 0){
+
+            $lifeCheck = $card->current_life + $request->life;
+
+            if($request->life > $card->health_point || $lifeCheck > $card->health_point){
+                return response()->json(['message' => 'O jogador não pode receber tantos pontos de vida'], 411);
+            }
+
+            if($request->mana > $card->mana_point){
+                return response()->json(['message' => 'O jogador não pode receber tantos pontos de mana'], 411);
+            }
+        }
+
+        if($life > 0 && $life != null){
+            $card->current_life = $card->current_life + $life;
+        }else if($life < 0 && $life != null){
+            $life = explode('-', $request->life)[1];
+
+            if($life > $card->current_life){
+                $card->current_life = 0;
+                $card->status = 'die';
+            }else{
+                $card->current_life = $card->current_life - $life;
+            }
+        }
+
+        if($mana > 0 && $mana != null){
+
+            $card->current_mana = $card->current_mana + $mana;
+
+        }else if($mana < 0 && $mana != null){
+
+            $mana = explode('-', $request->mana)[1];
+
+            if($mana > $card->current_mana){
+
+                $card->current_mana = 0;
+
+            }else{
+
+                $card->current_mana = $card->current_mana - $mana;
+
+            }
+        }
+
+        if($request->has('xp')){
+            $card->experience = $card->experience + $request->xp;
+        }
+
+        $update = $card->save();
+
+        if(!$update){
+            return response()->json(['message' => 'Algo deu errrdo! Tente novamente'], 411);
+        }
+
+        return response()->json(['message' => 'Dados atualizados com sucesso']);
+    }
 }

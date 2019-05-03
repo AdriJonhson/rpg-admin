@@ -97,7 +97,7 @@ class RpgController extends Controller
 
         $cards =  $rpg->cards;
 
-        $controlRpg = $request->user()->can('control_rpg');
+        $controlRpg = $request->user()->myRpgs()->where('slug', $rpg->slug)->first();
 
         return view('admin.rpgs.start', compact('rpg', 'cards', 'controlRpg'));
     }

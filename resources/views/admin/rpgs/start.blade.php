@@ -65,11 +65,13 @@
 
                             <div class="{!! $controlRpg ? 'btn-group' : '' !!}" role="group" aria-label="Basic example">
                                 <button type="button" class="btn btn-primary btnShowDetails btn-flat {!! !$controlRpg ? 'btn-block' : '' !!}"
-                                        data-cardid="{!! $card->id !!}"
-                                        data-player="{!! $card->model_id !!}">
+                                        data-cardid="{!! $card->id !!}">
                                     <i class="fa fa-eye"></i> Detalhes</button>
                                 @can('control_rpg')
-                                    <button type="button" class="btn bg-orange btn-flat"><i class="fa fa-pencil"></i> Editar</button>
+                                    <button type="button" class="btn bg-orange btn-flat btnEditPlayer"
+                                            data-cardid="{!! $card->id !!}"
+                                            data-player="{!! $card->model_id !!}">
+                                        <i class="fa fa-pencil"></i> Editar</button>
                                     <button type="button" class="btn bg-maroon btn-flat"><i class="fa fa-star"></i> Status</button>
                                 @endcan
                             </div>
@@ -91,65 +93,9 @@
     </div>
 
     {{--Modal do menu de ações--}}
-    <div class="modal fade" id="modal-menu-actions" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Menu de Ações</h4>
-                </div>
-                <div class="modal-body">
-                    @if($controlRpg)
-                        <a class="btn btn-app">
-                            <i class="fa fa-play"></i> Iniciar Sessão
-                        </a>
+    @include('admin.rpgs.actions-menu')
 
-                        <a class="btn btn-app">
-                            <i class="fa fa-pause"></i> Finalizar Sessão
-                        </a>
-
-                        <a class="btn btn-app">
-                            <i class="fa fa-stop"></i> Encerrar RPG
-                        </a>
-
-                        <br>
-
-                        <a class="btn btn-app">
-                            <i class="fa fa-user-plus"></i> Adicionar NPC
-                        </a>
-                    @endif
-
-                    <a class="btn btn-app">
-                        <i class="fa fa-map"></i> Mapa
-                    </a>
-
-                    @if($controlRpg)
-                        <a class="btn btn-app">
-                            <i class="fa fa-map-pin"></i> Adicionar Mapa
-                        </a>
-
-                        <br>
-
-                        <a class="btn btn-app">
-                            <i class="fa fa-clock-o"></i> Descansar
-                        </a>
-                    @endif
-
-                    <a class="btn btn-app">
-                        <i class="fa fa-sticky-note-o"></i> Lembretes
-                    </a>
-
-                    <a class="btn btn-app">
-                        <i class="fa fa-book"></i> Objetivos
-                    </a>
-                </div>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
-    <!-- /.modal -->
+    @include('admin.rpgs.edit-player')
 
     {{-- Modal com os detalhes da ficha do jogador --}}
     <div class="modal fade" id="modal-details" tabindex="-1">
@@ -353,6 +299,47 @@
 
             return value.replace('-', '- ');
         }
+
+        $('.btnEditPlayer').on('click', function () {
+            $.LoadingOverlay("show");
+            let cardId      = $(this).data('cardid');
+
+            $('#btnUpdateDataPlayer').data('cardid', cardId);
+
+            let url = '{!! route('card.get.edit', '_id') !!}'.replace('_id', cardId);
+            let data = null;
+
+            axios.get(url).then(function(response){
+                data = response.data.values;
+            }).then(function(){
+                $('#max_life_player').text(data.current_life+"/"+data.max_life);
+                $('#max_mana_player').text(data.current_mana+"/"+data.max_mana);
+            }).finally(function(){
+                $.LoadingOverlay("hide");
+                $('#modal-edit-player').modal('show');
+            });
+        });
+
+        $('#btnUpdateDataPlayer').on('click', function () {
+
+            let cardId = $(this).data('cardid');
+
+            let url = '{!! route('card.get.update', '_id') !!}'.replace('_id', cardId);
+
+            let formData = new FormData();
+
+            let data = {
+                'life': $('#life_player').val(),
+                'mana': $('#mana_player').val(),
+                'xp': $('#xp_adquired').val(),
+            };
+
+            axios.put(url, data).then(function(response){
+                console.log(response);
+            }).catch(function(ex){
+                console.log(ex.response);
+            });
+        });
 
         $('#modal-details').on('hide.bs.modal', function(){
             $('.tab-item').removeClass('active');
