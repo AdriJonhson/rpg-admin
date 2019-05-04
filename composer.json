@@ -15,6 +15,7 @@
         "laravel/framework": "5.7.*",
         "laravel/telescope": "^1.0",
         "laravel/tinker": "^1.0",
+        "pusher/pusher-php-server": "~3.0",
         "spatie/laravel-medialibrary": "^7.0.0",
         "spatie/laravel-permission": "^2.32",
         "spatie/laravel-sluggable": "^2.1",
