@@ -41,6 +41,7 @@
                                     {!! $card->status == \App\Models\Card::STATUS_LIVE ? 'style="border-color: #41f450"' : '' !!}
                                     {!! $card->status == \App\Models\Card::STATUS_DIE ? 'style="border-color: #fc0800"' : '' !!}
                                     {!! $card->model_id && $card->status == \App\Models\Card::STATUS_NEGATIVE ? 'style="border-color: #ffb200"' : '' !!}>
+                            <p class="text-center"><i class="fa fa-circle text-danger" id="user-status-{!! $card->model_id !!}"></i></p>
 
                             <h3 class="profile-username text-center" {!! auth()->user()->id == $card->model_id ? 'style="font-weight: bold"' : '' !!}>{{$card->name}}</h3>
 
@@ -221,7 +222,10 @@
 @section('js')
     <script>
 
-        showCardDetails();
+        $(document).ready(function(){
+            showCardDetails();
+            joiningBoard();
+        });
 
         function showCardDetails()
         {
@@ -300,6 +304,24 @@
             return value.replace('-', '- ');
         }
 
+        function joiningBoard()
+        {
+            window.Echo.join('Board.Rpg').here((users)  => {
+                $(users).each(function(index, user){
+                    $('#user-status-'+user.id).removeClass('text-danger');
+                    $('#user-status-'+user.id).addClass('text-success');
+                });
+            })
+            .joining((user) => {
+                $('#user-status-'+user.id).removeClass('text-danger');
+                $('#user-status-'+user.id).addClass('text-success');
+            })
+            .leaving((user) => {
+                $('#user-status-'+user.id).removeClass('text-success');
+                $('#user-status-'+user.id).addClass('text-danger');
+            });
+        }
+
         $('.btnEditPlayer').on('click', function () {
             $.LoadingOverlay("show");
             let cardId      = $(this).data('cardid');
@@ -356,6 +378,11 @@
             $('#life_player').val('');
             $('#mana_player').val('');
             $('#xp_adquired').val('');
-        })
+        });
+
+        function exitPlayer(id){
+            $('#user-status-'+id).removeClass('text-danger');
+            $('#user-status-'+id).addClass('text-success');
+        }
     </script>
 @endsection
