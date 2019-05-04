@@ -326,19 +326,23 @@
 
             let url = '{!! route('card.get.update', '_id') !!}'.replace('_id', cardId);
 
-            let formData = new FormData();
-
             let data = {
                 'life': $('#life_player').val(),
                 'mana': $('#mana_player').val(),
                 'xp': $('#xp_adquired').val(),
             };
 
+            $('#modal-edit-player').modal('hide');
+            $.LoadingOverlay("show");
+
             axios.put(url, data).then(function(response){
-                console.log(response);
+                successToast(response.data.message);
             }).catch(function(ex){
-                console.log(ex.response);
+                errorToast(ex.response.data.message);
+            }).finally(function(){
+                $.LoadingOverlay("hide");
             });
+
         });
 
         $('#modal-details').on('hide.bs.modal', function(){
@@ -346,6 +350,12 @@
             $('.tab-pane').removeClass('active');
             $('#tab_1').addClass('active');
             $('#tab_01_link').addClass('active');
+        });
+
+        $('#modal-edit-player').on('hide.bs.modal', function(){
+            $('#life_player').val('');
+            $('#mana_player').val('');
+            $('#xp_adquired').val('');
         })
     </script>
 @endsection
