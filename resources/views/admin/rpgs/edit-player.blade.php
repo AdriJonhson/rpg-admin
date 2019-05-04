@@ -23,7 +23,7 @@
                             <label for="life">Pontos de Vida <small>(Quantidade de pontos que deseja aumentar/diminuir.)</small></label>
                             <div class="input-group">
                                 <input type="number" class="form-control" id="life_player" name="life"
-                                       placeholder="Para aumentar somente números, para dimuir -NUMERO">
+                                       placeholder="Para aumentar: Número | Para dimuir: -NUMERO">
                                 <span class="input-group-addon" id="max_life_player">0</span>
                             </div>
                         </div>
@@ -35,7 +35,7 @@
                             <label for="mana">Pontos de Mana <small>(Quantidade de pontos que deseja aumentar/diminuir.)</small></label>
                             <div class="input-group">
                                 <input type="number" name="mana" id="mana_player" class="form-control"
-                                       placeholder="Para aumentar somente números, para dimuir -NUMERO">
+                                       placeholder="Para aumentar: Número | Para dimuir: -NUMERO">
                                 <span class="input-group-addon" id="max_mana_player">0</span>
                             </div>
                         </div>

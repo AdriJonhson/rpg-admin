@@ -50,10 +50,10 @@
                                     <b>Nível</b> <a class="pull-right">{{ $card->level}}</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <b>Pontos de Vida</b> <a class="pull-right">{{ $card->health_point . '/' . $card->health_point }}</a>
+                                    <b>Pontos de Vida</b> <a class="pull-right">{{ $card->current_life . '/' . $card->health_point }}</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <b>Pontos de Mana</b> <a class="pull-right">{{ $card->mana_point . '/' . $card->mana_point  }}</a>
+                                    <b>Pontos de Mana</b> <a class="pull-right">{{ $card->current_mana . '/' . $card->mana_point  }}</a>
                                 </li>
                                 <li class="list-group-item">
                                     <b>Constituição</b> <a class="pull-right">{{ $card->constitution }}</a>
