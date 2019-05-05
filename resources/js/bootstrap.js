@@ -52,5 +52,6 @@ window.Echo = new Echo({
     broadcaster: 'pusher',
     key: window.Laravel.pusher.key,
     cluster: window.Laravel.pusher.cluster,
-    encrypted: true
+    encrypted: true,
+    authEndpoint: window.AuthUrl
 });

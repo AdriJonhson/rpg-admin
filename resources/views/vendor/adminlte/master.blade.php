@@ -49,6 +49,8 @@
         window.Laravel = JSON.parse('{!! json_encode(['csrf_token' => csrf_token(),
          'pusher'   => ['cluster'   => config('broadcasting.connections.pusher.options.cluster'),
           'key' => config('broadcasting.connections.pusher.key')]]) !!}');
+
+        window.AuthUrl = '{!! url('broadcasting/auth') !!}';
     </script>
 </head>
 <body class="hold-transition @yield('body_class')">

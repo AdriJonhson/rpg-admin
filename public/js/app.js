@@ -30408,7 +30408,8 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   broadcaster: 'pusher',
   key: window.Laravel.pusher.key,
   cluster: window.Laravel.pusher.cluster,
-  encrypted: true
+  encrypted: true,
+  authEndpoint: window.AuthUrl
 });
 
 /***/ }),
