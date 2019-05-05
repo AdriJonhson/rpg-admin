@@ -25,7 +25,15 @@
         }
 
         .negative{
-            style=border-color: #ffb200;
+            border-color: #ffb200;
+        }
+
+        .online {
+            color: #00ff15;
+        }
+
+        .offline {
+            color: #ff0000;
         }
     </style>
 @endsection
@@ -146,17 +154,17 @@
 
             window.Echo.join(`Board.Rpg.${rpg.id}`).here((users)  => {
                 $(users).each(function(index, user){
-                    $('#user-status-'+user.id).removeClass('text-danger');
-                    $('#user-status-'+user.id).addClass('text-success');
+                    $('#user-status-'+user.id).removeClass('offline');
+                    $('#user-status-'+user.id).addClass('online');
                 });
             })
             .joining((user) => {
-                $('#user-status-'+user.id).removeClass('text-danger');
-                $('#user-status-'+user.id).addClass('text-success');
+                $('#user-status-'+user.id).removeClass('offline');
+                $('#user-status-'+user.id).addClass('online');
             })
             .leaving((user) => {
-                $('#user-status-'+user.id).removeClass('text-success');
-                $('#user-status-'+user.id).addClass('text-danger');
+                $('#user-status-'+user.id).removeClass('online');
+                $('#user-status-'+user.id).addClass('offline');
             }).listen('CardUpdated', (e) => {
                 loadCards(true);
             });
@@ -265,7 +273,7 @@
                             <img class="profile-user-img img-responsive img-circle ${card.status}"
                                  src="${avatar}"
                                  alt="Player-Avatar">
-                            <p class="text-center"><i class="fa fa-circle text-danger" id="user-status-${card.model_id}"></i></p>
+                            <p class="text-center"><i class="fa fa-circle offline" id="user-status-${card.model_id}"></i></p>
 
                             <h3 class="profile-username text-center" ${user_id == card.model_id ? 'style="font-weight: bold"' : ''}>${card.name}</h3>
 
