@@ -358,4 +358,11 @@ class CardController extends Controller
 
         return response()->json(['message' => 'Dados atualizados com sucesso']);
     }
+
+    public function loadCardsInRpg(Rpg $rpg)
+    {
+        $cards =  $rpg->cards;
+
+        return response()->json(['cards'    => $cards], 200);
+    }
 }

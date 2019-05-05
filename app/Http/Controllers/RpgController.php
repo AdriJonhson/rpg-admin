@@ -95,11 +95,9 @@ class RpgController extends Controller
     {
         config(['adminlte.collapse_sidebar' => true]);
 
-        $cards =  $rpg->cards;
-
         $controlRpg = $request->user()->myRpgs()->where('slug', $rpg->slug)->first();
 
-        return view('admin.rpgs.start', compact('rpg', 'cards', 'controlRpg'));
+        return view('admin.rpgs.start', compact('rpg', 'controlRpg'));
     }
 
     public function getMyRpgs(Request $request)
