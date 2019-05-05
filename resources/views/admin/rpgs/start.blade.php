@@ -40,68 +40,6 @@
         </div>
 
         <div class="box-body" id="boardPanel">
-
-            {{--@forelse($cards as $card)--}}
-
-                {{--@if($loop->index == 0)--}}
-                    {{--<div class="row">--}}
-                        {{--@endif--}}
-                        {{--<div class="col-sm-3">--}}
-                            {{--<img class="profile-user-img img-responsive img-circle"--}}
-                                 {{--src="{!! $card->avatar_url ? url($card->avatar_url) : 'https://i.imgur.com/dGo8DOk.png' !!}"--}}
-                                 {{--alt="Player-Avatar"--}}
-                                    {{--{!! $card->status == \App\Models\Card::STATUS_LIVE ? 'style="border-color: #41f450"' : '' !!}--}}
-                                    {{--{!! $card->status == \App\Models\Card::STATUS_DIE ? 'style="border-color: #fc0800"' : '' !!}--}}
-                                    {{--{!! $card->model_id && $card->status == \App\Models\Card::STATUS_NEGATIVE ? 'style="border-color: #ffb200"' : '' !!}>--}}
-                            {{--<p class="text-center"><i class="fa fa-circle text-danger" id="user-status-{!! $card->model_id !!}"></i></p>--}}
-
-                            {{--<h3 class="profile-username text-center" {!! auth()->user()->id == $card->model_id ? 'style="font-weight: bold"' : '' !!}>{{$card->name}}</h3>--}}
-
-                            {{--<p class="text-muted text-center">{!! $card->race . ' | ' . ($card->sub_race ?  $card->sub_race . ' | ' : '' ) . $card->class !!}</p>--}}
-                            {{--<ul class="list-group list-group-unbordered">--}}
-                                {{--<li class="list-group-item">--}}
-                                    {{--<b>Nível</b> <a class="pull-right">{{ $card->level}}</a>--}}
-                                {{--</li>--}}
-                                {{--<li class="list-group-item">--}}
-                                    {{--<b>Pontos de Vida</b> <a class="pull-right">{{ $card->current_life . '/' . $card->health_point }}</a>--}}
-                                {{--</li>--}}
-                                {{--<li class="list-group-item">--}}
-                                    {{--<b>Pontos de Mana</b> <a class="pull-right">{{ $card->current_mana . '/' . $card->mana_point  }}</a>--}}
-                                {{--</li>--}}
-                                {{--<li class="list-group-item">--}}
-                                    {{--<b>Constituição</b> <a class="pull-right">{{ $card->constitution }}</a>--}}
-                                {{--</li>--}}
-                                {{--<li class="list-group-item">--}}
-                                    {{--<b>Status</b> <a class="pull-right">{{ $card->status == 'live' ? 'Normal' : $card->status}}</a>--}}
-                                {{--</li>--}}
-                            {{--</ul>--}}
-
-                            {{--<div class="{!! $controlRpg ? 'btn-group' : '' !!}" role="group" aria-label="Basic example">--}}
-                                {{--<button type="button" class="btn btn-primary btnShowDetails btn-flat {!! !$controlRpg ? 'btn-block' : '' !!}"--}}
-                                        {{--data-cardid="{!! $card->id !!}">--}}
-                                    {{--<i class="fa fa-eye"></i> Detalhes</button>--}}
-                                {{--@can('control_rpg')--}}
-                                    {{--<button type="button" class="btn bg-orange btn-flat btnEditPlayer"--}}
-                                            {{--data-cardid="{!! $card->id !!}"--}}
-                                            {{--data-player="{!! $card->model_id !!}">--}}
-                                        {{--<i class="fa fa-pencil"></i> Editar</button>--}}
-                                    {{--<button type="button" class="btn bg-maroon btn-flat"><i class="fa fa-star"></i> Status</button>--}}
-                                {{--@endcan--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-
-                        {{--@if(($loop->index  + 1) % 4 == 0)--}}
-                    {{--</div>--}}
-                    {{--<div class="row">--}}
-                        {{--<hr>--}}
-                        {{--@endif--}}
-                        {{--@empty--}}
-
-                        {{--@endforelse--}}
-
-                    {{--</div>--}}
-                    {{--<div class="box-footer">--}}
-                    {{--</div>--}}
         </div>
     </div>
 
@@ -228,10 +166,6 @@
         {
             $.LoadingOverlay("show");
 
-            if(reset){
-                $('#boardPanel').empty();
-            }
-
             let rpg= JSON.parse('{!! request()->route('rpg')!!}');
             let url = `/load-cards/${rpg.slug}`;
             let data = [];
@@ -242,6 +176,11 @@
                 $(data.cards).each(function(key, value){
                     injectHtml = injectCard(value, key, injectHtml);
                 });
+
+                if(reset){
+                    $('#boardPanel').empty();
+                }
+
                 $('#boardPanel').append(injectHtml);
             }).catch(function (ex) {
                 console.log(ex);
