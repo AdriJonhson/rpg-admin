@@ -64,6 +64,7 @@
 
 @section('js')
     <script>
+        let onlineUsers;
 
         $(document).ready(function(){
             loadCards();
@@ -153,6 +154,7 @@
             let rpg= JSON.parse('{!! request()->route('rpg')!!}');
 
             window.Echo.join(`Board.Rpg.${rpg.id}`).here((users)  => {
+                onlineUsers = users;
                 $(users).each(function(index, user){
                     $('#user-status-'+user.id).removeClass('offline');
                     $('#user-status-'+user.id).addClass('online');
@@ -268,7 +270,17 @@
             let controlRpg = '{!! $controlRpg !!}';
             let showSubRace = card.sub_race != null ? card.sub_race + ' | ' : '';
             let status = card.status == 'live' ? 'Normal' : card.status;
+            let classCircle = 'offline';
 
+            if(onlineUsers != null){
+                for(let i = 0; i < onlineUsers.length; i++){
+                    if(onlineUsers[i].id == card.model_id){
+                        classCircle = 'online';
+                    }
+                }
+            }
+
+            // console.log(online)
             let buttonsControl = controlRpg ? `<button type="button" class="btn bg-orange btn-flat btnEditPlayer"
                                             data-cardid="${card.id}"
                                             data-player="${card.model_id }">
@@ -279,7 +291,7 @@
                             <img class="profile-user-img img-responsive img-circle ${card.status}"
                                  src="${avatar}"
                                  alt="Player-Avatar">
-                            <p class="text-center"><i class="fa fa-circle offline" id="user-status-${card.model_id}"></i></p>
+                            <p class="text-center"><i class="fa fa-circle ${classCircle}" id="user-status-${card.model_id}"></i></p>
 
                             <h3 class="profile-username text-center" ${user_id == card.model_id ? 'style="font-weight: bold"' : ''}>${card.name}</h3>
 
