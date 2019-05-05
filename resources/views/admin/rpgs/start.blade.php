@@ -177,7 +177,8 @@
             $.LoadingOverlay("show");
 
             let rpg= JSON.parse('{!! request()->route('rpg')!!}');
-            let url = `load-cards/${rpg.slug}`;
+            // let url = `/load-cards/${rpg.slug}`;
+            let url = '{!! route('cards.load', '_rpg') !!}'.replace('_rpg', rpg.slug);
             let data = [];
             let injectHtml = '';
 
