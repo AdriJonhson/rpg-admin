@@ -11,6 +11,6 @@
 |
 */
 
-Broadcast::channel('Board.Rpg', function ($user) {
-    return ['id'    => $user->id, 'name'    => $user->name];
+Broadcast::channel('Board.Rpg.{rpg_id}', function ($user, $rpg_id) {
+    return ['id' => $user->id, 'name' => $user->name];
 });

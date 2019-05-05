@@ -121,8 +121,8 @@
 
         $(document).ready(function(){
             loadCards();
-            showCardDetails();
             joiningBoard();
+            showCardDetails();
         });
 
         function showCardDetails()
@@ -204,7 +204,9 @@
 
         function joiningBoard()
         {
-            window.Echo.join('Board.Rpg').here((users)  => {
+            let rpg= JSON.parse('{!! request()->route('rpg')!!}');
+
+            window.Echo.join(`Board.Rpg.${rpg.id}`).here((users)  => {
                 $(users).each(function(index, user){
                     $('#user-status-'+user.id).removeClass('text-danger');
                     $('#user-status-'+user.id).addClass('text-success');
@@ -217,12 +219,19 @@
             .leaving((user) => {
                 $('#user-status-'+user.id).removeClass('text-success');
                 $('#user-status-'+user.id).addClass('text-danger');
+            }).listen('CardUpdated', (e) => {
+                loadCards(true);
             });
         }
 
-        function loadCards()
+        function loadCards(reset = false)
         {
             $.LoadingOverlay("show");
+
+            if(reset){
+                $('#boardPanel').empty();
+            }
+
             let rpg= JSON.parse('{!! request()->route('rpg')!!}');
             let url = `/load-cards/${rpg.slug}`;
             let data = [];

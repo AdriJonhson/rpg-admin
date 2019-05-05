@@ -19,8 +19,8 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
 
-        'App\Events\BoardJoin' => [
-            'App\Listeners\PlayersTest',
+        'App\Events\CardUpdated' => [
+            'App\Listeners\CardUpdatedListeners',
         ],
     ];
 

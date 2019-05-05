@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\CardUpdated;
 use App\Models\Card;
 use App\Models\Rpg;
 use App\Models\Skill;
@@ -355,6 +356,8 @@ class CardController extends Controller
         if(!$update){
             return response()->json(['message' => 'Algo deu errrdo! Tente novamente'], 411);
         }
+
+        broadcast(new CardUpdated($card->rpg));
 
         return response()->json(['message' => 'Dados atualizados com sucesso']);
     }

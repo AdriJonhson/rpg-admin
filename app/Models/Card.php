@@ -26,6 +26,11 @@ class Card extends Model
         return $this->morphTo('cardeable', 'model_type', 'model_id');
     }
 
+    public function rpg()
+    {
+        return $this->belongsTo(Rpg::class);
+    }
+
     public function avatar()
     {
         return $this->avatar_url ?? $url = 'https://www.gravatar.com/avatar/'.md5( strtolower( trim( $this->name ) ) )."?s=300&d=mm&r=g";
