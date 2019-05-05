@@ -20,10 +20,17 @@ class CardUpdated implements ShouldBroadcast
      * @return void
      */
     public $rpg;
+    public $card;
 
-    public function __construct($rpg)
+    public function __construct($rpg, $card)
     {
         $this->rpg = $rpg;
+        $this->card = $card;
+    }
+
+    public function broadcastWith()
+    {
+        return ['name' => $this->card->name];
     }
 
     /**

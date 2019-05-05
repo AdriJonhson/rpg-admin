@@ -357,7 +357,7 @@ class CardController extends Controller
             return response()->json(['message' => 'Algo deu errrdo! Tente novamente'], 411);
         }
 
-        broadcast(new CardUpdated($card->rpg));
+        broadcast(new CardUpdated($card->rpg, $card));
 
         return response()->json(['message' => 'Dados atualizados com sucesso']);
     }

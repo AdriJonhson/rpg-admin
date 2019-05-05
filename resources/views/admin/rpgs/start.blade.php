@@ -166,11 +166,11 @@
                 $('#user-status-'+user.id).removeClass('online');
                 $('#user-status-'+user.id).addClass('offline');
             }).listen('CardUpdated', (e) => {
-                loadCards(true);
+                loadCards(true, e);
             });
         }
 
-        function loadCards(reset = false)
+        function loadCards(reset = false, messageData = null)
         {
             $.LoadingOverlay("show");
 
@@ -194,6 +194,10 @@
                 console.log(ex);
             }).finally(function(){
                 $.LoadingOverlay("hide");
+
+                if(reset){
+                    successToast(`A Ficha do: ${messageData.name} foi atualizada.`);
+                }
             });
         }
 
@@ -218,6 +222,7 @@
         });
 
         $('#btnUpdateDataPlayer').on('click', function () {
+            let responseData;
 
             let cardId = $(this).data('cardid');
 
@@ -233,11 +238,12 @@
             $.LoadingOverlay("show");
 
             axios.put(url, data).then(function(response){
-                successToast(response.data.message);
+                responseData = response.data;
             }).catch(function(ex){
                 errorToast(ex.response.data.message);
             }).finally(function(){
                 $.LoadingOverlay("hide");
+                successToast(responseData.message);
             });
 
         });
