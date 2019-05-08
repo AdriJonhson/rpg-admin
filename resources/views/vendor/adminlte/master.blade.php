@@ -42,7 +42,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 
-    <link rel="shortcut icon" href="{!! url('favicon.ico') !!}" />
+    <link rel="icon" href="{{ asset('favicon.ico') }}">-
 
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
