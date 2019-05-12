@@ -12,6 +12,7 @@
     <div class="login-box">
         <div class="login-logo">
             <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
+            <img src="{!! asset('logo.png') !!}" alt="logo" width="250" height="150">
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">

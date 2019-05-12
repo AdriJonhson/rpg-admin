@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'logo' => "Ger. Aventura",
+    'logo' => "Gerenciador de Aventuras",
 
     'logo_mini' => '<b>GA</b>',
 
