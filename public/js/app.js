@@ -30414,14 +30414,89 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
 
 /***/ }),
 
+/***/ "./resources/js/components/Status.js":
+/*!*******************************************!*\
+  !*** ./resources/js/components/Status.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Status; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Status =
+/*#__PURE__*/
+function () {
+  function Status() {
+    _classCallCheck(this, Status);
+
+    this.init();
+  }
+
+  _createClass(Status, [{
+    key: "init",
+    value: function init() {
+      // $('#boardPanel').on('click', '.btnEditStatusPlayer',function(){
+      //     $('#modal-edit-status').modal('show');
+      // });
+      $('.select2').select2();
+      this.listStatus();
+      this.selectStatus();
+    }
+  }, {
+    key: "selectStatus",
+    value: function selectStatus() {
+      $('#status-type').on('change', function () {
+        var type = $(this).val();
+
+        if (type === "Novo Status") {
+          $('#status-damage').val('');
+          $('#status-duration').val('');
+          $('#status-name').val('');
+          $('#status-active').prop('checked', false);
+        }
+
+        $('.status-info').slideDown();
+      });
+    }
+  }, {
+    key: "listStatus",
+    value: function listStatus() {
+      $('#boardPanel').on('click', '.btnEditStatusPlayer', function () {
+        $('#modal-status').modal('show');
+      });
+    }
+  }]);
+
+  return Status;
+}();
+
+
+
+/***/ }),
+
 /***/ "./resources/js/site.js":
 /*!******************************!*\
   !*** ./resources/js/site.js ***!
   \******************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-// require('./components/Toasts');
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_Status__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Status */ "./resources/js/components/Status.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
+
+$(document).ready(function () {
+  new _components_Status__WEBPACK_IMPORTED_MODULE_0__["default"]();
+});
 
 /***/ }),
 
@@ -30443,8 +30518,8 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/vagrant/workspace/projects/rpg-admin/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/vagrant/workspace/projects/rpg-admin/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /var/www/html/rpg-admin/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /var/www/html/rpg-admin/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

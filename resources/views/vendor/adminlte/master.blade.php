@@ -54,6 +54,8 @@
 
         window.AuthUrl = '{!! url('broadcasting/auth') !!}';
     </script>
+
+    <link rel="stylesheet" href="{{ asset('vendor/adminlte/plugins/iCheck/square/blue.css') }}">
 </head>
 <body class="hold-transition @yield('body_class')">
 
@@ -83,6 +85,7 @@
 <script src="{!! asset('js/jquery.smartWizard.min.js') !!}"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.6/dist/loadingoverlay.min.js"></script>
+<script src="{{ asset('vendor/adminlte/plugins/iCheck/icheck.min.js') }}"></script>
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>--}}
 @yield('adminlte_js')
 

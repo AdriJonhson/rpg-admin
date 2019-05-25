@@ -60,6 +60,8 @@
     {{-- Modal com os detalhes da ficha do jogador --}}
     @include('admin.rpgs.modals.details')
 
+    {{-- Modal para editar os status da ficha do jogador --}}
+    @include('admin.rpgs.modals.status')
 @endsection
 
 @section('js')
@@ -286,7 +288,7 @@
                                             data-cardid="${card.id}"
                                             data-player="${card.model_id }">
                                             <i class="fa fa-pencil"></i> Editar</button>
-                                    <button type="button" class="btn bg-maroon btn-flat"><i class="fa fa-star"></i> Status</button>` : '';
+                                    <button type="button" class="btn bg-maroon btn-flat btnEditStatusPlayer"><i class="fa fa-star"></i> Status</button>` : '';
 
             injectHtml += `${index === 0 ? `<div class='row'>` : ``}<div class="col-sm-4">
                             <img class="profile-user-img img-responsive img-circle ${card.status}"
