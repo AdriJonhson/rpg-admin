@@ -30442,12 +30442,9 @@ function () {
   _createClass(Status, [{
     key: "init",
     value: function init() {
-      // $('#boardPanel').on('click', '.btnEditStatusPlayer',function(){
-      //     $('#modal-edit-status').modal('show');
-      // });
-      $('.select2').select2();
       this.listStatus();
       this.selectStatus();
+      this.addStatus();
     }
   }, {
     key: "selectStatus",
@@ -30468,8 +30465,40 @@ function () {
   }, {
     key: "listStatus",
     value: function listStatus() {
-      $('#boardPanel').on('click', '.btnEditStatusPlayer', function () {
-        $('#modal-status').modal('show');
+      var table;
+      $('#boardPanel').on('click', '.btnStatus', function () {
+        var card_id = $(this).data('card');
+        var url = '/get-status/' + card_id;
+        table = $('#status-table').DataTable({
+          processing: true,
+          bLengthChange: false,
+          searching: false,
+          bInfo: false,
+          ajax: url,
+          columns: [{
+            'data': 'id'
+          }, {
+            'data': 'id'
+          }, {
+            'data': 'id'
+          }, {
+            'data': 'id'
+          }],
+          fnInitComplete: function fnInitComplete() {
+            $('#modal-status').modal('show');
+          }
+        });
+      });
+      $('#modal-status').on('hide.bs.modal', function () {
+        table.destroy();
+      });
+    }
+  }, {
+    key: "addStatus",
+    value: function addStatus() {
+      $('#btnAddStatus').on('click', function () {
+        $('#modal-status').modal('hide');
+        $('#modal-add-status').modal('show');
       });
     }
   }]);

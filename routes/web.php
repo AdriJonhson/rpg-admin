@@ -13,7 +13,8 @@
 
 $c = (object)[
     'rpgController'     => RpgController::class,
-    'cardController'    => CardController::class
+    'cardController'    => CardController::class,
+    'statusController'  => StatusController::class,
 ];
 
 
@@ -42,9 +43,11 @@ Route::group(['middleware' => 'auth'], function() use($c){
     Route::get('/get-edit-card/{card}', $c->cardController.'@getEditData')->name('card.get.edit');
     Route::put('/get-edit-card/{card}', $c->cardController.'@updateEditData')->name('card.get.update');
     Route::get('/load-cards/{rpg}', $c->cardController.'@loadCardsInRpg')->name('cards.load');
+    Route::get('/get-status/{card}', $c->statusController.'@getStatusCard')->name('status.card.get');
 
     Route::group(['middleware' => 'verify_card'], function() use($c){
         Route::get('/rpgs/{rpg}', $c->rpgController.'@startAdventure')->name('rpg.start');
     });
+
 
 });

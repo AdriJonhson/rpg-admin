@@ -95,9 +95,20 @@ class RpgController extends Controller
     {
         config(['adminlte.collapse_sidebar' => true]);
 
+        $statusEffects = [
+            'hp'            => 'Vida',
+            'mp'            => 'Mana',
+            'skill'         => 'Destreza',
+            'force'         => 'Força',
+            'constitution'  => 'Constituição',
+            'sapience'      => 'Sabedoria',
+            'charisma'      => 'Carisma',
+            'intelligence'  => 'Inteligência'
+        ];
+
         $controlRpg = $request->user()->myRpgs()->where('slug', $rpg->slug)->first();
 
-        return view('admin.rpgs.start', compact('rpg', 'controlRpg'));
+        return view('admin.rpgs.start', compact('rpg', 'controlRpg', 'statusEffects'));
     }
 
     public function getMyRpgs(Request $request)

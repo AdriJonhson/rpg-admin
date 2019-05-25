@@ -31,9 +31,9 @@ class Card extends Model
         return $this->belongsTo(Rpg::class);
     }
 
-    public function avatar()
+    public function status()
     {
-        return $this->avatar_url ?? $url = 'https://www.gravatar.com/avatar/'.md5( strtolower( trim( $this->name ) ) )."?s=300&d=mm&r=g";
+        return $this->belongsToMany(Status::class, 'status_players', 'card_id', 'status_id');
     }
 
     public static function getRaces(){
