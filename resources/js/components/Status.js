@@ -13,6 +13,7 @@ export default class Status{
         this.addStatus();
         this.addStatusToCard();
         this.removeStatusToCard();
+        this.showStatusDetails();
     }
 
     selectStatus()
@@ -62,7 +63,8 @@ export default class Status{
             });
 
             function renderDetails(data, type, row) {
-                return `<button type="button" class="btn btn-info btn-flat btn-status-details">
+                return `<button type="button" class="btn btn-info btn-flat btn-status-details"
+                                            data-status="${row.id}">
                                             <i class="fa fa-eye"></i></button>`;
             }
 
@@ -162,5 +164,75 @@ export default class Status{
                 $.LoadingOverlay("hide");
             });
         });
+    }
+
+    showStatusDetails()
+    {
+        $('#status-table').on('click', '.btn-status-details', function(){
+            let status_id = $(this).data('status');
+
+            let url = `/get-status-details/${status_id}`;
+
+            $('#modal-status').modal('hide');
+
+            axios.get(url).then((response) => {
+
+                $('#status-name-details').val(response.data.name);
+                $('#status-duration-details').val(response.data.duration);
+
+                let content = response.data.content;
+
+                let rows = '';
+
+                $.each(content, function(key, value){
+
+                    rows += `<tr>
+                                <td>${checkAttribute(key)}</td>
+                                <td>${value}</td>
+                            </tr>`;
+                });
+
+                $('#tbodyStatusDetails').html(rows);
+                $('#modal-details-status').modal('show');
+
+            }).catch((ex) => {
+                errorToast('Algo deu errado! Tente Novamente.');
+            });
+        });
+
+        function checkAttribute(value)
+        {
+            if(value === 'hp'){
+                return "Vida";
+            }
+
+            if(value === 'mp'){
+                return "Mana";
+            }
+
+            if(value === 'skill'){
+                return "Destreza";
+            }
+
+            if(value === 'force'){
+                return "Força";
+            }
+
+            if(value === 'constitution'){
+                return "Contituição";
+            }
+
+            if(value === 'sapience'){
+                return "Sabedoria";
+            }
+
+            if(value === 'charisma'){
+                return "Carisma";
+            }
+
+            if(value === 'intelligence'){
+                return "Inteligência";
+            }
+        }
     }
 }

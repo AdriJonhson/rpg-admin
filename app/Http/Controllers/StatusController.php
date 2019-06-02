@@ -19,6 +19,20 @@ class StatusController extends Controller
         return DataTables::of($status)->make(true);
     }
 
+    public function getStatus(Request $request, Status $status)
+    {
+        $statusJson = [];
+        $statusContent = json_decode($status->content, true);
+
+        $statusJson['name']     = $status->name;
+        $statusJson['duration'] = $status->duration;
+        $statusJson['content']  = array_filter($statusContent, function($value){
+            return $value != 0;
+        });
+
+        return response()->json($statusJson);
+    }
+
     public function addStatusToPlayer(Request $request, Card $card)
     {
         try{

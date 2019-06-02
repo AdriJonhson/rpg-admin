@@ -4,5 +4,5 @@
 {{-- Modal para adicionar Status --}}
 @include('admin.rpgs.modals.status.create')
 
-{{-- Modal para editar Status --}}
-@include('admin.rpgs.modals.status.edit')
+{{-- Modal com detalhes do status--}}
+@include('admin.rpgs.modals.status.details')
