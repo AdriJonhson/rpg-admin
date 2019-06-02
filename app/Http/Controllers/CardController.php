@@ -265,6 +265,34 @@ class CardController extends Controller
     {
         $user = $card->cardeable;
 
+        $status = $card->status;
+
+        foreach($status as $item){
+            $cardAtributes = json_decode($card->attributes, true);
+
+            $statusAttributes = array_filter(json_decode($item->content, true), function($value){
+                return $value != 0;
+            });
+
+            $attributes = [];
+
+            foreach($cardAtributes as $key => $cardAtribute){
+
+                if(isset($statusAttributes[$key])){
+
+                    $cardAtribute['value'] = $cardAtribute['value'] + $statusAttributes[$key];
+
+                }
+
+                $attributes[$key] = [
+                    'value' =>  $cardAtribute['value'],
+                    'modifier' => $cardAtribute['modifier']
+                ];
+            }
+
+            $card->attributes = json_encode($attributes);
+        }
+
         $response = [
             'player_name'   => $user->name,
             'char_name'     => $card->name,
@@ -365,6 +393,50 @@ class CardController extends Controller
     public function loadCardsInRpg(Rpg $rpg)
     {
         $cards =  $rpg->cards;
+
+        $cards = $cards->map(function($card){
+
+            $status = $card->status;
+
+            foreach($status as $item){
+                $cardAtributes = json_decode($card->attributes, true);
+
+                $statusAttributes = array_filter(json_decode($item->content, true), function($value){
+                    return $value != 0;
+                });
+
+                if(isset($statusAttributes['hp'])){
+                    $card->current_life = $card->current_life + $statusAttributes['hp'];
+                }
+
+                if(isset($statusAttributes['mp'])){
+                    $card->current_mana = $card->current_mana + $statusAttributes['mp'];
+                }
+
+//                $card->update();
+
+                $attributes = [];
+
+                foreach($cardAtributes as $key => $cardAtribute){
+
+                    if(isset($statusAttributes[$key])){
+
+                        $cardAtribute['value'] = $cardAtribute['value'] + $statusAttributes[$key];
+
+                    }
+
+                    $attributes[$key] = [
+                        'value' =>  $cardAtribute['value'],
+                        'modifier' => $cardAtribute['modifier']
+                    ];
+                }
+
+               $card->attributes = json_encode($attributes);
+
+            }
+
+            return $card;
+        });
 
         return response()->json(['cards'    => $cards], 200);
     }

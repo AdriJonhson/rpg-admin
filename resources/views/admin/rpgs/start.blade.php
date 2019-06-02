@@ -298,7 +298,7 @@
         $('#modal-details').on('hide.bs.modal', function(){
             tableStatus.destroy();
         });
-        
+
         function injectCard(card, index, injectHtml)
         {
             let avatar = card.avatar_url != null ? '{!! url('__url') !!}'.replace('__url',  card.avatar_url) : 'https://i.imgur.com/dGo8DOk.png';
@@ -342,7 +342,7 @@
                                     <b>Pontos de Mana</b> <a class="pull-right">${card.current_mana} / ${card.mana_point}</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <b>Constituição</b> <a class="pull-right">${card.constitution}</a>
+                                    <b>Classe de Armadura</b> <a class="pull-right">${card.constitution}</a>
                                 </li>
                             </ul>
 
