@@ -30446,6 +30446,7 @@ function () {
       this.selectStatus();
       this.addStatus();
       this.addStatusToCard();
+      this.removeStatusToCard();
     }
   }, {
     key: "selectStatus",
@@ -30477,19 +30478,30 @@ function () {
           searching: false,
           bInfo: false,
           ajax: url,
+          pageLength: 7,
           columns: [{
-            'data': 'id'
+            'data': 'name'
           }, {
-            'data': 'id'
+            render: function render(data, type, row) {
+              return "".concat(row.duration, " Turnos");
+            }
           }, {
-            'data': 'id'
+            render: renderDetails
           }, {
-            'data': 'id'
+            render: renderRemove
           }],
           fnInitComplete: function fnInitComplete() {
             $('#modal-status').modal('show');
           }
         });
+
+        function renderDetails(data, type, row) {
+          return "<button type=\"button\" class=\"btn btn-info btn-flat btn-status-details\">\n                                            <i class=\"fa fa-eye\"></i></button>";
+        }
+
+        function renderRemove(data, type, row) {
+          return "<button type=\"button\" class=\"btn btn-danger btn-flat btn-status-remove\"\n                                                data-status=".concat(row.id, "\n                                                data-card=\"").concat(card_id, "\">\n                                            <i class=\"fa fa-trash\"></i></button>");
+        }
       });
       $('#modal-status').on('hide.bs.modal', function () {
         table.destroy();
@@ -30546,6 +30558,22 @@ function () {
             $.LoadingOverlay("hide");
           });
         }
+      });
+    }
+  }, {
+    key: "removeStatusToCard",
+    value: function removeStatusToCard() {
+      $('#status-table').on('click', '.btn-status-remove', function () {
+        var status_id = $(this).data('status');
+        var card_id = $(this).data('card');
+        var url = "/remove-status/".concat(card_id, "/status/").concat(status_id);
+        $('#modal-status').modal('hide');
+        $.LoadingOverlay("show");
+        axios.delete(url).catch(function (response) {
+          errorToast(ex.response.data.message);
+        }).finally(function () {
+          $.LoadingOverlay("hide");
+        });
       });
     }
   }]);

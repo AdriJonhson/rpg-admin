@@ -55,4 +55,20 @@ class StatusController extends Controller
             return response()->json(['message'  => 'Algo Deu Errado! Tente Novamente.'], 400);
         }
     }
+
+    public function removeStatusToPlayer(Request $request, Card $card, Status $status)
+    {
+        try{
+
+            StatusPlayer::where('card_id', $card->id)->where('status_id', $status->id)->delete();
+
+            $rpg = Rpg::find($card->rpg_id);
+
+            event(new StatusEvents($rpg, $card));
+
+            return response()->json(['message'  => 'Status Atualizados com sucesso'], 202);
+        }catch(\Exception $exception){
+            return response()->json(['message'  => 'Algo Deu Errado! Tente Novamente.'], 400);
+        }
+    }
 }

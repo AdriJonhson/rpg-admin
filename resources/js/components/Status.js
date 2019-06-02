@@ -12,6 +12,7 @@ export default class Status{
         this.selectStatus();
         this.addStatus();
         this.addStatusToCard();
+        this.removeStatusToCard();
     }
 
     selectStatus()
@@ -48,16 +49,29 @@ export default class Status{
                 searching: false,
                 bInfo: false,
                 ajax: url,
+                pageLength: 7,
                 columns: [
-                    {'data': 'id'},
-                    {'data': 'id'},
-                    {'data': 'id'},
-                    {'data': 'id'},
+                    {'data': 'name'},
+                    {render: function(data, type, row){return `${row.duration} Turnos`}},
+                    {render: renderDetails},
+                    {render: renderRemove},
                 ],
                 fnInitComplete: function(){
                     $('#modal-status').modal('show');
                 }
             });
+
+            function renderDetails(data, type, row) {
+                return `<button type="button" class="btn btn-info btn-flat btn-status-details">
+                                            <i class="fa fa-eye"></i></button>`;
+            }
+
+            function renderRemove(data, type, row) {
+                return `<button type="button" class="btn btn-danger btn-flat btn-status-remove"
+                                                data-status=${row.id}
+                                                data-card="${card_id}">
+                                            <i class="fa fa-trash"></i></button>`;
+            }
 
         });
 
@@ -128,5 +142,25 @@ export default class Status{
 
         });
 
+    }
+
+    removeStatusToCard()
+    {
+        $('#status-table').on('click', '.btn-status-remove', function(){
+
+            let status_id = $(this).data('status');
+            let card_id = $(this).data('card');
+
+            let url = `/remove-status/${card_id}/status/${status_id}`;
+
+            $('#modal-status').modal('hide');
+            $.LoadingOverlay("show");
+
+            axios.delete(url).catch((response) => {
+                errorToast(ex.response.data.message);
+            }).finally(() => {
+                $.LoadingOverlay("hide");
+            });
+        });
     }
 }

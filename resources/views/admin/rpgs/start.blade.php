@@ -171,8 +171,10 @@
                 $('#user-status-'+user.id).addClass('offline');
             }).listen('CardUpdated', (e) => {
                 loadCards(true, e);
+                successToast(`A Ficha do: ${e.name} foi atualizada.`);
             }).listen('StatusEvents', (e) => {
-                infoToast(`O Status do: ${e.name}, foram atualizados`);
+                loadCards(true, e);
+                infoToast(`O Status do: ${e.name} foram atualizados.`);
             });
         }
 
@@ -202,9 +204,9 @@
             }).finally(function(){
                 $.LoadingOverlay("hide");
 
-                if(reset){
-                    successToast(`A Ficha do: ${messageData.name} foi atualizada.`);
-                }
+                // if(reset){
+                //     successToast(`A Ficha do: ${messageData.name} foi atualizada.`);
+                // }
             });
         }
 
