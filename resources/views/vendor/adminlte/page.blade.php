@@ -188,6 +188,16 @@
         {
             window.toastr.error(message, "Error")
         }
+
+        $.LoadingOverlaySetup({
+            background      : "rgba(255, 255, 255, 0.8)",
+            imageAnimation  : null,
+            imageAutoResize  : 1,
+            imageResizeFactor  : 1,
+            imageOrder  : 1,
+            image           : "https://i.imgur.com/dfLxXVa.gif",
+            imageColor      : "#202020"
+        });
     </script>
     <!-- <script src="{{ asset('vendor/adminlte/dist/js/adminlte.min.js') }}"></script> -->
     @stack('js')
