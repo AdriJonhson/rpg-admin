@@ -22,6 +22,10 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\CardUpdated' => [
             'App\Listeners\CardUpdatedListeners',
         ],
+
+        'App\Events\StatusEvents' => [
+            'App\Listeners\StatusUpdatedListeners',
+        ],
     ];
 
     /**

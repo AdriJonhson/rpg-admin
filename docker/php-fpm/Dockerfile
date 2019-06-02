@@ -45,3 +45,7 @@ RUN source $NVM_DIR/nvm.sh \
 
 ENV NODE_PATH $NVM_INSTALL_PATH/lib/node_modules
 ENV PATH $NVM_INSTALL_PATH/bin:$PATH
+
+RUN usermod -u 1000 www-data
+COPY --chown=www-data:www-data . /var/www/
+USER www-data

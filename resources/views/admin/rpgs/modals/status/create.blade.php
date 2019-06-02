@@ -45,7 +45,7 @@
                                     @foreach($statusEffects as $index => $value)
                                         <tr>
                                             <td>{!! $value !!}</td>
-                                            <td><input type="number" class="form-control" value="0"></td>
+                                            <td><input type="number" id="status-{!! $index !!}" class="form-control" value="0"></td>
                                         </tr>
                                     @endforeach
                                     </tbody>
@@ -53,16 +53,12 @@
                             </div>
                         </div>
                     </div>
-                    {{--                    <div class="form-check">--}}
-                    {{--                        <input type="checkbox" class="form-check-input" id="status-active" name="status-active" value="1">--}}
-                    {{--                        <label class="form-check-label" for="status-active">Ativo em todos os turnos</label>--}}
-                    {{--                    </div>--}}
                 </div>
 
             </div>
             <div class="modal-footer">
                 <button class="btn btn-default pull-left" type="button" data-dismiss="modal">Fechar</button>
-                <button class="btn btn-success" data-cardid="0" id="btnUpdateDataPlayer" type="button">Salvar</button>
+                <button class="btn btn-success" data-card="0" id="btnAddStatusToCard" type="button">Salvar</button>
             </div>
         </div>
         <!-- /.modal-content -->

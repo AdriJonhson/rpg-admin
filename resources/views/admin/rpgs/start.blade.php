@@ -171,6 +171,8 @@
                 $('#user-status-'+user.id).addClass('offline');
             }).listen('CardUpdated', (e) => {
                 loadCards(true, e);
+            }).listen('StatusEvents', (e) => {
+                infoToast(`O Status do: ${e.name}, foram atualizados`);
             });
         }
 

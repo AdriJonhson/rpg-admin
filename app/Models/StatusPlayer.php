@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class StatusPlayer extends Model
 {
-    //
+    protected $fillable = ['status_id', 'card_id'];
 }

@@ -30445,6 +30445,7 @@ function () {
       this.listStatus();
       this.selectStatus();
       this.addStatus();
+      this.addStatusToCard();
     }
   }, {
     key: "selectStatus",
@@ -30468,6 +30469,7 @@ function () {
       var table;
       $('#boardPanel').on('click', '.btnStatus', function () {
         var card_id = $(this).data('card');
+        $('#btnAddStatusToCard').attr('data-card', card_id);
         var url = '/get-status/' + card_id;
         table = $('#status-table').DataTable({
           processing: true,
@@ -30499,6 +30501,51 @@ function () {
       $('#btnAddStatus').on('click', function () {
         $('#modal-status').modal('hide');
         $('#modal-add-status').modal('show');
+      });
+    }
+  }, {
+    key: "addStatusToCard",
+    value: function addStatusToCard() {
+      $('#btnAddStatusToCard').on('click', function () {
+        var card = $(this).data('card');
+
+        if ($('#status-name').val() === '') {
+          warningToast('O Campo Nome é obrigatórios!');
+        } else if ($('#status-duration').val() === '') {
+          warningToast('O Campo Duração é obrigatórios!');
+        } else {
+          var data = {
+            'name': $('#status-name').val(),
+            'duration': $('#status-duration').val(),
+            'active': $('#status-active').is(':checked') ? 1 : 0,
+            'hp': $('#status-hp').val(),
+            'mp': $('#status-mp').val(),
+            'skill': $('#status-skill').val(),
+            'force': $('#status-force').val(),
+            'constitution': $('#status-constitution').val(),
+            'sapience': $('#status-sapience').val(),
+            'charisma': $('#status-charisma').val(),
+            'intelligence': $('#status-intelligence').val()
+          };
+          $('#modal-add-status').modal('hide');
+          $.LoadingOverlay("show");
+          $('#status-name').val('');
+          $('#status-duration').val('');
+          $('#status-active').prop('checked', false);
+          $('#status-hp').val(0);
+          $('#status-mp').val(0);
+          $('#status-skill').val(0);
+          $('#status-force').val(0);
+          $('#status-constitution').val(0);
+          $('#status-sapience').val(0);
+          $('#status-charisma').val(0);
+          $('#status-intelligence').val(0);
+          axios.post("/add-status/".concat(card), data).then(function (response) {}).catch(function (ex) {
+            errorToast(ex.response.data.message);
+          }).finally(function () {
+            $.LoadingOverlay("hide");
+          });
+        }
       });
     }
   }]);

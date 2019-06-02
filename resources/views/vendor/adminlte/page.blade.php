@@ -184,6 +184,16 @@
             window.toastr.success(message, "Ok")
         }
 
+        function infoToast(message)
+        {
+            window.toastr.info(message, "Opa")
+        }
+
+        function warningToast(message)
+        {
+            window.toastr.warning(message, "Ops")
+        }
+
         function errorToast(message)
         {
             window.toastr.error(message, "Error")

@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "dropify": "^0.2.2",
+    "jquery-validation": "^1.19.0",
     "laravel-echo": "^1.5.3",
     "pusher-js": "^4.4.0",
     "toastr": "^2.1.4"

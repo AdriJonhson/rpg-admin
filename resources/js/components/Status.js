@@ -11,6 +11,7 @@ export default class Status{
         this.listStatus();
         this.selectStatus();
         this.addStatus();
+        this.addStatusToCard();
     }
 
     selectStatus()
@@ -36,6 +37,8 @@ export default class Status{
 
             let card_id = $(this).data('card');
 
+            $('#btnAddStatusToCard').attr('data-card', card_id);
+
             let url = '/get-status/'+card_id;
 
 
@@ -59,7 +62,7 @@ export default class Status{
         });
 
         $('#modal-status').on('hide.bs.modal', function(){
-           table.destroy();
+            table.destroy();
         });
     }
 
@@ -69,5 +72,61 @@ export default class Status{
             $('#modal-status').modal('hide');
             $('#modal-add-status').modal('show');
         });
+    }
+
+    addStatusToCard()
+    {
+        $('#btnAddStatusToCard').on('click', function(){
+
+            let card = $(this).data('card');
+
+            if( $('#status-name').val() === ''){
+                warningToast('O Campo Nome é obrigatórios!');
+
+            }else if($('#status-duration').val() === ''){
+                warningToast('O Campo Duração é obrigatórios!');
+
+            }else{
+                let data = {
+                    'name': $('#status-name').val(),
+                    'duration': $('#status-duration').val(),
+                    'active': $('#status-active').is(':checked') ? 1 : 0,
+                    'hp'            : $('#status-hp').val(),
+                    'mp'            : $('#status-mp').val(),
+                    'skill'         : $('#status-skill').val(),
+                    'force'         : $('#status-force').val(),
+                    'constitution'  : $('#status-constitution').val(),
+                    'sapience'      : $('#status-sapience').val(),
+                    'charisma'      : $('#status-charisma').val(),
+                    'intelligence'  : $('#status-intelligence').val(),
+                };
+
+                $('#modal-add-status').modal('hide');
+                $.LoadingOverlay("show");
+
+                $('#status-name').val('');
+                $('#status-duration').val('');
+                $('#status-active').prop('checked', false);
+                $('#status-hp').val(0);
+                $('#status-mp').val(0);
+                $('#status-skill').val(0);
+                $('#status-force').val(0);
+                $('#status-constitution').val(0);
+                $('#status-sapience').val(0);
+                $('#status-charisma').val(0);
+                $('#status-intelligence').val(0);
+
+                axios.post(`/add-status/${card}`, data)
+                    .then((response) => {
+                    }).catch((ex) => {
+                    errorToast(ex.response.data.message);
+                }).finally(() => {
+                    $.LoadingOverlay("hide");
+                });
+            }
+
+
+        });
+
     }
 }

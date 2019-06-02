@@ -44,10 +44,10 @@ Route::group(['middleware' => 'auth'], function() use($c){
     Route::put('/get-edit-card/{card}', $c->cardController.'@updateEditData')->name('card.get.update');
     Route::get('/load-cards/{rpg}', $c->cardController.'@loadCardsInRpg')->name('cards.load');
     Route::get('/get-status/{card}', $c->statusController.'@getStatusCard')->name('status.card.get');
+    Route::post('/add-status/{card}', $c->statusController.'@addStatusToPlayer')->name('status.card.create');
 
     Route::group(['middleware' => 'verify_card'], function() use($c){
         Route::get('/rpgs/{rpg}', $c->rpgController.'@startAdventure')->name('rpg.start');
     });
-
 
 });
