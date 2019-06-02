@@ -19,6 +19,10 @@
                             <a href="#tab_2" data-toggle="tab">Atributos</a>
                         </li>
 
+                        <li class="tab-item">
+                            <a href="#tab_5" data-toggle="tab">Status</a>
+                        </li>
+
                         <li class="tab-item disabled" {!! $controlRpg ? 'style="display: block"' : 'style="display: none"' !!} id="inventory">
                             <a href="#tab_3" data-toggle="tab">Inventário</a>
                         </li>
@@ -103,6 +107,22 @@
                         <!-- /.tab-pane -->
                         <div class="tab-pane" id="tab_4">
 
+                        </div>
+
+                        <div class="tab-pane" id="tab_5">
+                            <div class="table">
+                                <table class="table table-hover" id="status-table-details" style="width: 100%">
+                                    <thead>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>Duração</th>
+                                        <th>Detalhes</th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody></tbody>
+                                </table>
+                            </div>
                         </div>
                         <!-- /.tab-pane -->
                     </div>

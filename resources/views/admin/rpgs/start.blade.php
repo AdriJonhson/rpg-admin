@@ -67,6 +67,7 @@
 @section('js')
     <script>
         let onlineUsers;
+        let tableStatus;
 
         $(document).ready(function(){
             loadCards();
@@ -133,6 +134,30 @@
 
                 $('#intelligence_value').text(data.attributes['intelligence'].value);
                 $('#intelligence_modify').text(checkModifier(data.attributes['intelligence'].modifier));
+
+                let url = '/get-status/'+cardId;
+
+                tableStatus = $('#status-table-details').DataTable({
+                    processing: true,
+                    bLengthChange: false,
+                    searching: false,
+                    bInfo: false,
+                    ajax: url,
+                    pageLength: 7,
+                    columns: [
+                        {'data': 'name'},
+                        {render: function(data, type, row){return `${row.duration} Turnos`}},
+                        {render: renderDetails},
+                    ]
+                });
+
+                function renderDetails(data, type, row) {
+                    return `<button type="button" class="btn btn-info btn-flat btn-status-details"
+                                            data-status="${row.id}">
+                                            <i class="fa fa-eye"></i></button>`;
+                }
+
+
 
             }).finally(function(){
                 $.LoadingOverlay("hide");
@@ -270,6 +295,10 @@
             $('#xp_adquired').val('');
         });
 
+        $('#modal-details').on('hide.bs.modal', function(){
+            tableStatus.destroy();
+        });
+        
         function injectCard(card, index, injectHtml)
         {
             let avatar = card.avatar_url != null ? '{!! url('__url') !!}'.replace('__url',  card.avatar_url) : 'https://i.imgur.com/dGo8DOk.png';

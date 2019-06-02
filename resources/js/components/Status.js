@@ -175,6 +175,19 @@ export default class Status{
 
             $('#modal-status').modal('hide');
 
+            loadDataStatus(url);
+        });
+
+        $('#status-table-details').on('click', '.btn-status-details', function(){
+            let status_id = $(this).data('status');
+
+            let url = `/get-status-details/${status_id}`;
+
+            loadDataStatus(url);
+        });
+
+        function loadDataStatus(url)
+        {
             axios.get(url).then((response) => {
 
                 $('#status-name-details').val(response.data.name);
@@ -198,7 +211,7 @@ export default class Status{
             }).catch((ex) => {
                 errorToast('Algo deu errado! Tente Novamente.');
             });
-        });
+        }
 
         function checkAttribute(value)
         {

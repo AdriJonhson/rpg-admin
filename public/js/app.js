@@ -30584,6 +30584,15 @@ function () {
         var status_id = $(this).data('status');
         var url = "/get-status-details/".concat(status_id);
         $('#modal-status').modal('hide');
+        loadDataStatus(url);
+      });
+      $('#status-table-details').on('click', '.btn-status-details', function () {
+        var status_id = $(this).data('status');
+        var url = "/get-status-details/".concat(status_id);
+        loadDataStatus(url);
+      });
+
+      function loadDataStatus(url) {
         axios.get(url).then(function (response) {
           $('#status-name-details').val(response.data.name);
           $('#status-duration-details').val(response.data.duration);
@@ -30597,7 +30606,7 @@ function () {
         }).catch(function (ex) {
           errorToast('Algo deu errado! Tente Novamente.');
         });
-      });
+      }
 
       function checkAttribute(value) {
         if (value === 'hp') {
